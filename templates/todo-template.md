@@ -1,0 +1,442 @@
+# Todo Template - 任务清单模板
+
+## 使用说明
+
+本模板用于 Project Manager 创建和管理项目任务清单。请完整填写所有任务。
+
+## 文档元信息
+
+<!--
+Document: Todo List
+Version: 1.0.0
+Author: Project Manager
+Created: {YYYY-MM-DD}
+Updated: {YYYY-MM-DD}
+-->
+
+---
+
+# Todo List: {项目名称}
+
+## 项目统计
+
+| 指标 | 数值 |
+|------|------|
+| 总任务数 | {数量} |
+| 已完成 | {数量} |
+| 进行中 | {数量} |
+| 阻塞 | {数量} |
+| 未开始 | {数量} |
+| 完成率 | {百分比} |
+
+---
+
+## Phase 0: 项目初始化
+
+### TASK-{YYYYMMDD}-001: 项目规划
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-001 |
+| 负责人 | Project Manager |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 1h |
+| 实际工时 | - |
+| 依赖 | 无 |
+| 输入 | 项目需求简述 |
+| 输出 | `docs/project-plan.md`, `docs/todo.md`, `docs/decision-log.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 分析项目需求，识别项目范围和风险，创建项目规划文档、任务清单和决策日志。
+
+**验收标准**:
+- [ ] 项目规划文档包含项目概述、范围、风险分析
+- [ ] 任务清单包含所有阶段的任务
+- [ ] 决策日志已初始化
+- [ ] 提交 Human Developer 审批
+
+**子任务**:
+- [ ] 分析项目需求
+- [ ] 识别项目范围和风险
+- [ ] 创建 Todo 文件
+- [ ] 创建 Decision Log 文件
+- [ ] 生成项目规划文档
+- [ ] 提交审批
+
+---
+
+### TASK-{YYYYMMDD}-002: 技术选型
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-002 |
+| 负责人 | Tech Lead |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 1h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-001 |
+| 输入 | `docs/project-plan.md`, `docs/todo.md` |
+| 输出 | `docs/decision-log.md`（追加技术选型决策） |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 分析技术需求，确定技术栈方向，评估技术债务基线，创建技术选型决策记录。
+
+**验收标准**:
+- [ ] 技术栈已确定（前端、后端、数据库、基础设施）
+- [ ] 技术选型决策已记录在 Decision Log
+- [ ] 技术债务基线已评估
+- [ ] 提交 Human Developer 审批
+
+---
+
+## Phase 1: 需求与设计
+
+### TASK-{YYYYMMDD}-003: 编写 PRD
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-003 |
+| 负责人 | Product Manager |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-001, TASK-{YYYYMMDD}-002 |
+| 输入 | `docs/project-plan.md`, `docs/decision-log.md` |
+| 输出 | `docs/prd.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 使用 PRD 模板编写产品需求文档，包括用户分析、功能需求、非功能需求、验收标准等。
+
+**验收标准**:
+- [ ] PRD 包含所有必填章节
+- [ ] 每个功能需求有对应的验收标准
+- [ ] 优先级排序有明确的依据
+- [ ] 非功能需求完整定义
+
+---
+
+### TASK-{YYYYMMDD}-004: 设计 UI/UX
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-004 |
+| 负责人 | UI/UX Designer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-003 |
+| 输入 | `docs/prd.md` |
+| 输出 | `docs/design-system.md`, `docs/user-flows.md`, `docs/wireframes.md`, `docs/mockups.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 基于 PRD 设计用户界面和交互体验，包括设计系统、用户流程、线框图和高保真原型。
+
+**验收标准**:
+- [ ] 设计覆盖所有 PRD 中的用户场景
+- [ ] 设计系统包含颜色、字体、间距、组件规范
+- [ ] 交互规范定义所有交互状态
+
+---
+
+### TASK-{YYYYMMDD}-005: 设计系统架构
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-005 |
+| 负责人 | Solution Architect |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-003, TASK-{YYYYMMDD}-004 |
+| 输入 | `docs/prd.md`, `docs/design-system.md` |
+| 输出 | `docs/architecture.md`, `docs/decision-log.md`（追加架构决策） |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 设计系统架构，包括模块划分、接口边界、数据流、非功能需求实现方案。
+
+**验收标准**:
+- [ ] 架构文档包含架构图
+- [ ] 每个模块有明确的职责定义
+- [ ] 接口边界清晰定义
+- [ ] 非功能需求有实现方案
+
+---
+
+## Phase 2: 数据与后端
+
+### TASK-{YYYYMMDD}-006: 设计数据库
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-006 |
+| 负责人 | Database Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-005 |
+| 输入 | `docs/prd.md`, `docs/architecture.md` |
+| 输出 | `docs/database-schema.md`, `docs/database-migration-plan.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 设计数据库 Schema，包括 ER 图、表结构、索引、约束、迁移策略。
+
+**验收标准**:
+- [ ] 所有表有主键
+- [ ] 所有外键有索引
+- [ ] 所有字段有注释
+- [ ] 迁移策略可回滚
+
+---
+
+### TASK-{YYYYMMDD}-007: 开发后端 API
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-007 |
+| 负责人 | Backend Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 4h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-006 |
+| 输入 | `docs/prd.md`, `docs/architecture.md`, `docs/database-schema.md` |
+| 输出 | `docs/api-spec.md`, 后端代码, 单元测试 |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 开发后端 API，包括 API 设计、业务逻辑实现、中间件开发、数据访问层实现。
+
+**验收标准**:
+- [ ] 所有 API 有文档
+- [ ] 所有 API 有错误处理
+- [ ] 所有 API 有请求验证
+- [ ] 代码通过 Lint 检查
+- [ ] 单元测试覆盖率 >= 80%
+
+---
+
+## Phase 3: 前端与 AI
+
+### TASK-{YYYYMMDD}-008: 开发前端
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-008 |
+| 负责人 | Frontend Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 4h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-007 |
+| 输入 | `docs/prd.md`, `docs/design-system.md`, `docs/api-spec.md` |
+| 输出 | 前端代码, 组件测试 |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 开发前端应用，包括组件实现、状态管理、路由配置、API 调用层。
+
+**验收标准**:
+- [ ] 所有页面已实现
+- [ ] 所有组件有类型定义
+- [ ] 所有 API 调用有错误处理
+- [ ] 响应式设计覆盖主要断点
+- [ ] 代码通过 Lint 检查
+
+---
+
+### TASK-{YYYYMMDD}-009: 开发 AI 功能
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-009 |
+| 负责人 | AI Engineer |
+| 优先级 | P1 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 3h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-007 |
+| 输入 | `docs/prd.md`, `docs/architecture.md`, `docs/api-spec.md` |
+| 输出 | AI 功能代码, Prompt 模板, AI 功能测试 |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 开发 AI 功能，包括模型集成、Prompt 工程、RAG 管线实现。
+
+**验收标准**:
+- [ ] 所有 Prompt 有版本管理
+- [ ] 所有 AI 调用有超时和重试
+- [ ] 所有 AI 输出有验证和过滤
+
+---
+
+## Phase 4: 质量保证
+
+### TASK-{YYYYMMDD}-010: 执行测试
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-010 |
+| 负责人 | QA Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-008, TASK-{YYYYMMDD}-009 |
+| 输入 | `docs/prd.md`, `docs/api-spec.md`, 所有代码 |
+| 输出 | `docs/test-plan.md`, `docs/test-report.md`, `docs/bug-report.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 执行测试策略，包括单元测试、集成测试、E2E 测试、性能测试。
+
+**验收标准**:
+- [ ] 所有 Critical 和 High 优先级 Bug 已修复
+- [ ] 测试覆盖率达标
+- [ ] 性能测试满足非功能需求
+- [ ] 验收测试全部通过
+
+---
+
+### TASK-{YYYYMMDD}-011: 执行安全审计
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-011 |
+| 负责人 | Security Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-010 |
+| 输入 | 所有代码, `docs/api-spec.md`, `docs/architecture.md` |
+| 输出 | `docs/security-audit-report.md`, `docs/security-recommendations.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 执行安全审计，包括漏洞扫描、渗透测试、认证授权检查。
+
+**验收标准**:
+- [ ] 所有 Critical 和 High 安全漏洞已修复
+- [ ] 认证授权机制通过审计
+- [ ] 敏感数据已加密存储
+- [ ] 所有输入有验证和过滤
+
+---
+
+### TASK-{YYYYMMDD}-012: 执行代码审查
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-012 |
+| 负责人 | Code Reviewer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-011 |
+| 输入 | 所有代码, 所有文档 |
+| 输出 | `docs/code-review-report.md`, `docs/refactoring-suggestions.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 执行代码审查，包括编码规范检查、架构合规检查、技术债务识别。
+
+**验收标准**:
+- [ ] 所有 Major 问题已修复
+- [ ] 编码规范合规率 >= 95%
+- [ ] 架构合规性通过
+- [ ] 技术债务已记录
+
+---
+
+## Phase 5: 部署与运维
+
+### TASK-{YYYYMMDD}-013: 部署上线
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-013 |
+| 负责人 | DevOps Engineer |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 2h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-012 |
+| 输入 | 所有代码, `docs/architecture.md`, 所有测试报告 |
+| 输出 | `docs/deployment-plan.md`, CI/CD 配置, Docker 配置, 监控配置 |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 配置 CI/CD、容器化、环境管理、监控告警，执行部署。
+
+**验收标准**:
+- [ ] 部署可自动化
+- [ ] 部署可回滚
+- [ ] 所有环境变量已加密管理
+- [ ] 监控告警已配置完成
+
+---
+
+### TASK-{YYYYMMDD}-014: 项目验收
+
+| 字段 | 内容 |
+|------|------|
+| 任务 ID | TASK-{YYYYMMDD}-014 |
+| 负责人 | Project Manager |
+| 优先级 | P0 |
+| 状态 | NOT_STARTED |
+| 预估工时 | 1h |
+| 实际工时 | - |
+| 依赖 | TASK-{YYYYMMDD}-013 |
+| 输入 | 所有交付物 |
+| 输出 | `docs/project-summary.md`, `docs/lessons-learned.md` |
+| 创建日期 | {YYYY-MM-DD} |
+| 开始日期 | - |
+| 完成日期 | - |
+
+**描述**: 对照 PRD 进行验收，检查 Todo 完成状态，编写项目总结。
+
+**验收标准**:
+- [ ] 所有 Todo 已完成
+- [ ] 所有 Acceptance Criteria 已满足
+- [ ] 所有 Quality Gates 已通过
+- [ ] 项目总结已编写
+
+---
+
+## 附录
+
+### 变更历史
+
+| 版本 | 日期 | 变更说明 | 作者 |
+|------|------|----------|------|
+| 1.0.0 | {YYYY-MM-DD} | 初始版本 | Project Manager |
+
+---
+
+**本模板必须完整填写。不要使用占位符、省略号或 TODO 标记。**
