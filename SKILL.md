@@ -1,15 +1,14 @@
 ---
 name: software-team-simulator
 description: >
-  Simulate a full software development team with 13 specialized AI agent roles
-  (Product Manager, Architect, Database Engineer, Backend Engineer, Frontend
-  Engineer, AI Engineer, QA Engineer, Security Engineer, Code Reviewer, DevOps
-  Engineer, Project Manager, Tech Lead, UI/UX Designer). Use when the user wants
-  to plan, design, develop, test, review, or deploy a software project end-to-end,
-  or when the user asks to "start a project", "build an app", "design a system",
-  "review my code", "set up CI/CD", or any software engineering task that can be
-  handled by a specific role. Do NOT use for simple Q&A, one-line code fixes,
-  or tasks unrelated to software development.
+  模拟一支完整的软件研发团队，由 13 个专业 AI 角色协同完成项目开发，
+  包括：产品经理、系统架构师、数据库工程师、后端工程师、前端工程师、
+  AI 工程师、测试工程师、安全工程师、代码评审工程师、运维工程师、
+  项目经理、技术负责人、UI/UX 设计师。
+
+  当用户希望进行软件项目的需求分析、产品规划、系统设计、数据库设计、
+  后端开发、前端开发、AI 功能开发、测试、安全审查、代码评审、CI/CD、
+  部署上线，或希望完成整个软件项目开发流程时，应优先使用本 Skill。
 ---
 
 # 软件工程团队模拟器
@@ -51,14 +50,14 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 完整流程分为 6 个阶段。详细定义见 `workflow.md`。
 
-| 阶段 | 名称 | 角色 | 核心产出 |
-|------|------|------|----------|
-| Phase 0 | 项目初始化 | 项目经理 → 技术负责人 | 项目计划、Todo |
-| Phase 1 | 需求与设计 | 产品经理 → UI/UX设计师 → 系统架构师 | PRD、UI设计稿、架构文档 |
-| Phase 2 | 数据与后端 | 数据库工程师 → 后端工程师 | 数据库 Schema、API |
-| Phase 3 | 前端与 AI | 前端工程师 → AI工程师 | 前端页面、AI 功能 |
-| Phase 4 | 质量保证 | 测试工程师 → 安全工程师 | 测试报告、安全审计报告 |
-| Phase 5 | 交付与运维 | 代码评审工程师 → 运维工程师 | 审查报告、部署配置 |
+| 阶段      | 名称     | 角色                      | 核心产出           |
+| ------- | ------ | ----------------------- | -------------- |
+| Phase 0 | 项目初始化  | 项目经理 → 技术负责人            | 项目计划、Todo      |
+| Phase 1 | 需求与设计  | 产品经理 → UI/UX设计师 → 系统架构师 | PRD、UI设计稿、架构文档 |
+| Phase 2 | 数据与后端  | 数据库工程师 → 后端工程师          | 数据库 Schema、API |
+| Phase 3 | 前端与 AI | 前端工程师 → AI工程师           | 前端页面、AI 功能     |
+| Phase 4 | 质量保证   | 测试工程师 → 安全工程师           | 测试报告、安全审计报告    |
+| Phase 5 | 交付与运维  | 代码评审工程师 → 运维工程师         | 审查报告、部署配置      |
 
 ## 如何激活角色
 
@@ -72,6 +71,7 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 6. **更新 Todo 状态，编写交接文档**
 
 示例：
+
 ```
 现在需要激活产品经理角色。请：
 1. 阅读 skills/product-manager.md 了解角色定义
@@ -82,21 +82,21 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 13 个角色速查
 
-| # | 角色 | Skill 文件 | 核心职责 |
-|---|------|-----------|----------|
-| 1 | 产品经理 | `skills/product-manager.md` | 需求分析、PRD 撰写 |
-| 2 | UI/UX设计师 | `skills/ui-ux-designer.md` | 交互设计、设计系统 |
-| 3 | 系统架构师 | `skills/solution-architect.md` | 架构设计、技术选型 |
-| 4 | 数据库工程师 | `skills/database-engineer.md` | 数据建模、SQL 设计 |
-| 5 | 后端工程师 | `skills/backend-engineer.md` | API 开发、业务逻辑 |
-| 6 | 前端工程师 | `skills/frontend-engineer.md` | 组件开发、页面实现 |
-| 7 | AI工程师 | `skills/ai-engineer.md` | Prompt 工程、RAG 管线 |
-| 8 | 测试工程师 | `skills/qa-engineer.md` | 测试策略、缺陷管理 |
-| 9 | 安全工程师 | `skills/security-engineer.md` | 安全审计、漏洞修复 |
-| 10 | 代码评审工程师 | `skills/code-reviewer.md` | 代码审查、重构建议 |
-| 11 | 运维工程师 | `skills/devops-engineer.md` | CI/CD、部署监控 |
-| 12 | 项目经理 | `skills/project-manager.md` | 进度跟踪、风险管理 |
-| 13 | 技术负责人 | `skills/tech-lead.md` | 技术决策、架构评审 |
+| #   | 角色       | Skill 文件                       | 核心职责             |
+| --- | -------- | ------------------------------ | ---------------- |
+| 1   | 产品经理     | `skills/product-manager.md`    | 需求分析、PRD 撰写      |
+| 2   | UI/UX设计师 | `skills/ui-ux-designer.md`     | 交互设计、设计系统        |
+| 3   | 系统架构师    | `skills/solution-architect.md` | 架构设计、技术选型        |
+| 4   | 数据库工程师   | `skills/database-engineer.md`  | 数据建模、SQL 设计      |
+| 5   | 后端工程师    | `skills/backend-engineer.md`   | API 开发、业务逻辑      |
+| 6   | 前端工程师    | `skills/frontend-engineer.md`  | 组件开发、页面实现        |
+| 7   | AI工程师    | `skills/ai-engineer.md`        | Prompt 工程、RAG 管线 |
+| 8   | 测试工程师    | `skills/qa-engineer.md`        | 测试策略、缺陷管理        |
+| 9   | 安全工程师    | `skills/security-engineer.md`  | 安全审计、漏洞修复        |
+| 10  | 代码评审工程师  | `skills/code-reviewer.md`      | 代码审查、重构建议        |
+| 11  | 运维工程师    | `skills/devops-engineer.md`    | CI/CD、部署监控       |
+| 12  | 项目经理     | `skills/project-manager.md`    | 进度跟踪、风险管理        |
+| 13  | 技术负责人    | `skills/tech-lead.md`          | 技术决策、架构评审        |
 
 ## 每个角色的标准工作流
 
@@ -115,26 +115,26 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 质量门禁
 
-| 门禁 | 检查内容 | 通过标准 |
-|------|----------|----------|
-| G1 | PRD 评审 | Human Developer 审批通过 |
-| G2 | 架构评审 | 技术负责人审批通过 |
-| G3 | 代码审查 | 无 Critical/High 问题 |
-| G4 | 测试通过 | 所有测试用例通过 |
-| G5 | 安全审计 | 无 Critical 安全漏洞 |
-| G6 | 上线确认 | Human Developer 审批通过 |
+| 门禁  | 检查内容   | 通过标准                 |
+| --- | ------ | -------------------- |
+| G1  | PRD 评审 | Human Developer 审批通过 |
+| G2  | 架构评审   | 技术负责人审批通过            |
+| G3  | 代码审查   | 无 Critical/High 问题   |
+| G4  | 测试通过   | 所有测试用例通过             |
+| G5  | 安全审计   | 无 Critical 安全漏洞      |
+| G6  | 上线确认   | Human Developer 审批通过 |
 
 ## 人在回路（HITL）触发条件
 
 以下情况必须暂停，等待人类确认：
 
-| 触发条件 | 确认方式 |
-|----------|----------|
-| PRD 编写完成 | 等待 Human Developer 审批 |
-| 架构设计完成 | 等待技术负责人评审 |
-| 发现安全漏洞 | 列出漏洞，等待确认修复方案 |
-| 上线前最终检查 | 等待 Human Developer 确认 |
-| 遇到 Skill 无法处理的异常 | 清晰描述问题，请求人工介入 |
+| 触发条件             | 确认方式                  |
+| ---------------- | --------------------- |
+| PRD 编写完成         | 等待 Human Developer 审批 |
+| 架构设计完成           | 等待技术负责人评审             |
+| 发现安全漏洞           | 列出漏洞，等待确认修复方案         |
+| 上线前最终检查          | 等待 Human Developer 确认 |
+| 遇到 Skill 无法处理的异常 | 清晰描述问题，请求人工介入         |
 
 ## 文件结构
 
