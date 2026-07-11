@@ -1,4 +1,4 @@
-# 🧠 AI 软件工程技能仓库
+﻿# 🧠 AI 软件工程技能仓库
 
 > **一个人，就是一个团队。**
 >
@@ -47,7 +47,8 @@
 ## 📦 仓库里有什么？
 
 ```text
-TreaSkill/
+TraeSkill/
+├── SKILL.md                      ★ TRAE Skill 入口（YAML 元数据 + 协调指令）
 ├── README.md                     ★ 你正在看的这个文件 — 仓库总览
 ├── workflow.md                   ★ 全流程工作流定义
 │
@@ -280,11 +281,36 @@ TreaSkill/
 
 #### 导入方法
 
+TRAE 原生支持 Skill 系统，你可以通过以下方式导入：
+
+**方式一：通过界面导入（推荐）**
+
 1. 打开 TRAE IDE
-2. 在对话界面点击「Skill」按钮
-3. 选择「导入 Skill」
-4. 选择本仓库的 `skill.md` 文件作为入口
-5. TRAE 会自动加载整个 Skill 目录
+2. 前往 **设置** → **技能与命令**
+3. 在 **技能** 部分，点击 **创建** 按钮
+4. 选择 **项目技能**（推荐）或 **全局技能**
+5. 上传本仓库的 `SKILL.md` 文件
+6. TRAE 会自动分析 Skill 并填充名称、描述和指令
+7. 点击 **确认** 完成导入
+
+**方式二：手动复制到项目目录**
+
+```bash
+# 将整个仓库复制到项目 .trae/skills/ 目录下
+# 例如：
+cp -r TraeSkill/ .trae/skills/trae-skill/
+```
+
+**方式三：使用 .agents 技能目录**
+
+```bash
+# 将 SKILL.md 放入 .agents/skills/trae-skill/ 目录
+mkdir -p .agents/skills/trae-skill/
+cp SKILL.md .agents/skills/trae-skill/
+cp -r skills/ shared/ templates/ workflow.md .agents/skills/trae-skill/
+```
+
+然后在 TRAE 设置中启用「.agents 技能目录」开关。
 
 #### 启动你的 AI 团队
 
@@ -292,7 +318,7 @@ TreaSkill/
 
 ```
 我有一个项目想法：[描述你的项目]
-请按照 skill.md 中的工作流程，从 Phase 0 开始推进。
+请按照 SKILL.md 中的工作流程，从 Phase 0 开始推进。
 ```
 
 或者直接指定角色：
@@ -313,9 +339,11 @@ Phase 0 已完成，请通知 项目经理 开始 Phase 1 工作。
 
 #### 使用技巧
 
-- TRAE 原生支持 Skill 系统，导入后所有角色和规范文件自动可用
+- TRAE 会根据 SKILL.md 中的 `description` 字段自动判断是否触发本技能
+- 你也可以手动调用：`用 software-team-simulator 技能帮我启动一个新项目`
 - 每个角色的 Skill 文件包含完整的 Prompt Template，Agent 会自动遵循
 - 关键决策点 TRAE 会暂停等待你的确认，确保 HITL 流程
+- 如果只想用某个特定角色，直接说「帮我用产品经理角色分析需求」即可
 
 ---
 
@@ -326,7 +354,7 @@ Phase 0 已完成，请通知 项目经理 开始 Phase 1 工作。
 1. 将本仓库克隆到本地：
 
 ```bash
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 ```
 
 2. 在 Claude Code 对话中，将 Skill 文件作为上下文引用：
@@ -372,10 +400,10 @@ git clone https://github.com/你的用户名/TreaSkill.git
 1. 将本仓库克隆到本地：
 
 ```bash
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 ```
 
-2. 在 Cursor 中打开你的项目目录（将 TreaSkill 放在项目目录下或作为子模块）
+2. 在 Cursor 中打开你的项目目录（将 TraeSkill 放在项目目录下或作为子模块）
 
 3. 在 Cursor 的 Agent 模式下，使用 `@file` 引用 Skill 文件：
 
@@ -392,9 +420,9 @@ git clone https://github.com/你的用户名/TreaSkill.git
 ```markdown
 # .cursorrules
 你是一个 AI 软件工程团队的成员。
-请遵循 TreaSkill/skills/ 目录下的角色定义。
-所有代码必须符合 TreaSkill/shared/ 目录下的编码规范。
-文档格式请参考 TreaSkill/templates/ 目录下的模板。
+请遵循 TraeSkill/skills/ 目录下的角色定义。
+所有代码必须符合 TraeSkill/shared/ 目录下的编码规范。
+文档格式请参考 TraeSkill/templates/ 目录下的模板。
 关键决策必须等待人工确认（HITL）。
 ```
 
@@ -421,7 +449,7 @@ git clone https://github.com/你的用户名/TreaSkill.git
 1. 将本仓库克隆到你的项目目录：
 
 ```bash
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 ```
 
 2. 在 VS Code 中打开项目
@@ -450,7 +478,7 @@ codex
 
 ```markdown
 # copilot-instructions.md
-本项目使用 TreaSkill AI 软件工程技能仓库。
+本项目使用 TraeSkill AI 软件工程技能仓库。
 当前角色定义请参考 skills/ 目录下的对应文件。
 编码规范请参考 shared/coding-standard.md。
 所有关键决策必须等待人工确认。
@@ -476,7 +504,7 @@ codex
 1. 将本仓库克隆到本地：
 
 ```bash
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 ```
 
 2. 使用 Gemini CLI 的 `--system-instruction` 或文件引用：
@@ -518,7 +546,7 @@ gemini
 1. 将本仓库克隆到本地：
 
 ```bash
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 ```
 
 2. 在 OpenHands 中创建新任务
@@ -526,8 +554,8 @@ git clone https://github.com/你的用户名/TreaSkill.git
 3. 在任务描述中引用 Skill 文件：
 
 ```
-请阅读 /path/to/TreaSkill/skills/product-manager.md
-了解你的角色定义。然后阅读 /path/to/TreaSkill/workflow.md
+请阅读 /path/to/TraeSkill/skills/product-manager.md
+了解你的角色定义。然后阅读 /path/to/TraeSkill/workflow.md
 了解整体工作流程。现在开始分析以下需求：[描述你的需求]
 ```
 
@@ -542,9 +570,9 @@ git clone https://github.com/你的用户名/TreaSkill.git
 
 ```
 # 创建新的 OpenHands 任务
-请阅读 /path/to/TreaSkill/skills/solution-architect.md
-以及 /path/to/TreaSkill/shared/api-standard.md
-和 /path/to/TreaSkill/shared/coding-standard.md
+请阅读 /path/to/TraeSkill/skills/solution-architect.md
+以及 /path/to/TraeSkill/shared/api-standard.md
+和 /path/to/TraeSkill/shared/coding-standard.md
 
 上一个角色（产品经理）已经完成了 PRD，文件在 /path/to/project/prd.md
 请以系统架构师的身份，设计系统架构并输出 architecture.md。
@@ -782,7 +810,7 @@ MIT
 
 ```bash
 # 克隆仓库
-git clone https://github.com/你的用户名/TreaSkill.git
+git clone https://github.com/你的用户名/TraeSkill.git
 
 # 选择你的 AI 工具，参考「各 AI 工具导入指南」章节
 # 每个工具都有详细的操作步骤和代码示例
