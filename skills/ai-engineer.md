@@ -85,6 +85,8 @@
 | PRD 文档 | Product Manager | `docs/prd.md` | AI 功能需求 |
 | 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
 | API 文档 | Backend Engineer | `docs/api-spec.md` | API 规范 |
+| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
@@ -124,6 +126,36 @@
 11. 自检 Review
 12. 更新 Todo
 13. 执行交接
+```
+
+### 缺陷修复模式
+
+当收到测试工程师的缺陷修复交接时，切换到缺陷修复模式：
+
+```
+1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/bug-report.md（了解所有已知 Bug）
+3. 读取相关源码文件（根据 Bug 涉及的文件路径）
+4. 分析 Bug 根因
+5. 编写修复方案
+6. 实现修复代码
+7. 编写/更新单元测试（覆盖 Bug 场景）
+8. 自检：确认修复不引入新问题
+9. 在 handoff-bugfix-{BUG-ID}.md 中填写「修复记录」
+10. 通知测试工程师执行回归验证
+11. 等待回归验证结果
+    ├── 回归通过 → Bug 关闭
+    └── 回归失败 → 分析失败原因，重新修复
+```
+
+### 模式切换判断
+
+当被激活时，首先判断当前模式：
+
+```
+检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+  ├── 存在 → 进入缺陷修复模式
+  └── 不存在 → 进入正常开发模式
 ```
 
 ## 思考过程

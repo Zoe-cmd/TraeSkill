@@ -83,9 +83,11 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | 功能需求 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
-| 数据库 Schema | Database Engineer | `docs/database-schema.md` | 数据模型 |
+| PRD 文档 | 产品经理 | `docs/prd.md` | 功能需求 |
+| 架构文档 | 系统架构师 | `docs/architecture.md` | 架构约束 |
+| 数据库 Schema | 数据库工程师 | `docs/database-schema.md` | 数据模型 |
+| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
@@ -115,6 +117,8 @@
 
 ## 工作流程
 
+### 正常开发模式
+
 ```
 1. 读取 Skill 文件
 2. 读取 Required Documents
@@ -130,6 +134,36 @@
 12. 自检 Review
 13. 更新 Todo
 14. 执行交接
+```
+
+### 缺陷修复模式
+
+当收到 QA Engineer 的缺陷修复交接时，切换到缺陷修复模式：
+
+```
+1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/bug-report.md（了解所有已知 Bug）
+3. 读取相关源码文件（根据 Bug 涉及的文件路径）
+4. 分析 Bug 根因
+5. 编写修复方案
+6. 实现修复代码
+7. 编写/更新单元测试（覆盖 Bug 场景）
+8. 自检：确认修复不引入新问题
+9. 在 handoff-bugfix-{BUG-ID}.md 中填写「修复记录」
+10. 通知 QA Engineer 执行回归验证
+11. 等待 QA 回归验证结果
+    ├── 回归通过 → Bug 关闭
+    └── 回归失败 → 分析失败原因，重新修复
+```
+
+### 模式切换判断
+
+当被激活时，首先判断当前模式：
+
+```
+检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+  ├── 存在 → 进入缺陷修复模式
+  └── 不存在 → 进入正常开发模式
 ```
 
 ## 思考过程
