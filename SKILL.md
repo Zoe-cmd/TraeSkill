@@ -24,55 +24,25 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 技能文件位置
 
-本技能的辅助文件（`skills/`、`shared/`、`templates/`、`workflow.md`）与本 `SKILL.md` 文件在**同一个目录**中。由于用户可能通过 ZIP 上传、克隆到 `.agents/skills/` 或直接放在 `.trae/skills/` 等不同方式安装本技能，安装目录名称不固定（可能是 `software-team-simulator`、`TraeSkill` 或其他名称），因此**不要硬编码目录路径**。
-
-### 如何定位技能文件
-
-在首次需要读取辅助文件时，执行以下搜索步骤来确定技能根目录：
-
-**步骤 1**：在全局技能目录中搜索
+辅助文件（`skills/`、`shared/`、`templates/`、`workflow.md`）与本文档在**同一目录**。安装目录名可能是 `software-team-simulator` 或 `TraeSkill`。按以下顺序尝试读取，命中即可：
 
 ```
-搜索路径（按优先级）：
-  Windows:  %USERPROFILE%\.trae-cn\skills\*\SKILL.md
-  macOS:    ~/.trae-cn/skills/*/SKILL.md
-  Linux:    ~/.trae-cn/skills/*/SKILL.md
+Windows:
+  %USERPROFILE%\.trae-cn\skills\software-team-simulator\
+  %USERPROFILE%\.trae-cn\skills\TraeSkill\
+  %USERPROFILE%\.agents\skills\software-team-simulator\
+  %USERPROFILE%\.agents\skills\TraeSkill\
+
+macOS / Linux:
+  ~/.trae-cn/skills/software-team-simulator/
+  ~/.trae-cn/skills/TraeSkill/
+  ~/.agents/skills/software-team-simulator/
+  ~/.agents/skills/TraeSkill/
 ```
 
-找到内容与本文件匹配的 `SKILL.md`，其所在目录即为技能根目录。
+找到的目录记为 `{SKILL_ROOT}`，辅助文件路径：`{SKILL_ROOT}/skills/`、`{SKILL_ROOT}/shared/`、`{SKILL_ROOT}/templates/`、`{SKILL_ROOT}/workflow.md`。若都找不到，直接询问用户技能目录路径。
 
-**步骤 2**：如果在全局技能目录中未找到，搜索项目技能目录
-
-```
-搜索路径：
-  {项目根目录}\.trae\skills\*\SKILL.md
-  {项目根目录}\.agents\skills\*\SKILL.md
-```
-
-**步骤 3**：如果以上都未找到，直接询问用户
-
-```
-"我无法自动定位技能文件的安装位置。请告诉我技能文件所在的目录路径，
-通常是在以下位置之一：
-- ~/.trae-cn/skills/software-team-simulator/（全局技能）
-- ~/.trae-cn/skills/TraeSkill/（如果从 GitHub 克隆）
-- 项目目录/.trae/skills/software-team-simulator/（项目技能）
-- 项目目录/.agents/skills/TraeSkill/（.agents 目录）
-请提供技能根目录的完整路径。"
-```
-
-### 确定技能根目录后
-
-一旦找到技能根目录（下文用 `{SKILL_ROOT}` 表示），所有辅助文件的路径为：
-
-| 文件类型 | 路径 |
-|---------|------|
-| 角色技能 | `{SKILL_ROOT}/skills/角色代号.md` |
-| 共享规范 | `{SKILL_ROOT}/shared/规范名.md` |
-| 文档模板 | `{SKILL_ROOT}/templates/模板名.md` |
-| 工作流程 | `{SKILL_ROOT}/workflow.md` |
-
-> **注意**：项目产出物（`docs/` 目录下的文件）始终在**项目工作区**中，不是在技能安装目录。
+> 项目产出物（`docs/`）始终在项目工作区，不是技能目录。
 
 ## 触发条件
 
