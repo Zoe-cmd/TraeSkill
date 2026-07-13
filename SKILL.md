@@ -22,6 +22,37 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 你不直接执行开发任务。你的工作是：识别当前阶段 → 激活对应角色 → 确保角色按规范工作
 → 完成阶段交接。
 
+## 技能文件位置
+
+本技能的辅助文件（skills/、shared/、templates/、workflow.md）不在项目工作区中，而是安装在 TRAE 的全局技能目录。当需要读取这些文件时，使用以下路径：
+
+**Windows**：
+```
+%USERPROFILE%\.trae-cn\skills\software-team-simulator\
+```
+
+**macOS / Linux**：
+```
+~/.trae-cn/skills/software-team-simulator/
+```
+
+> 当本指令中说「读取 `skills/product-manager.md`」时，实际读取的路径是：
+> - Windows: `c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\skills\product-manager.md`
+> - macOS/Linux: `~/.trae-cn/skills/software-team-simulator/skills/product-manager.md`
+>
+> 如果不确定用户名，可以运行 `echo $env:USERPROFILE`（Windows）或 `echo $HOME`（macOS/Linux）获取。
+
+### 路径速查
+
+| 文件类型 | 路径前缀（Windows） | 路径前缀（macOS/Linux） |
+|---------|-------------------|----------------------|
+| 角色技能 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\skills\` | `~/.trae-cn/skills/software-team-simulator/skills/` |
+| 共享规范 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\shared\` | `~/.trae-cn/skills/software-team-simulator/shared/` |
+| 文档模板 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\templates\` | `~/.trae-cn/skills/software-team-simulator/templates/` |
+| 工作流程 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\workflow.md` | `~/.trae-cn/skills/software-team-simulator/workflow.md` |
+
+> **注意**：项目产出物（`docs/` 目录下的文件）始终在**项目工作区**中，不是在技能安装目录。
+
 ## 触发条件
 
 ### 应该使用本技能的场景
@@ -66,27 +97,30 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 当需要某个角色时，按以下步骤操作。**每次对话只激活一个角色**：
 
-1. **读取角色 Skill 文件**：`skills/角色代号.md`
-2. **读取该角色需要的共享规范**：`shared/` 目录下的相关文件
-3. **读取该角色需要的输入文档**：前一个角色的输出文档和交接文档
+1. **读取角色 Skill 文件**：从技能安装目录读取 `skills/角色代号.md`（路径见上方「技能文件位置」）
+2. **读取该角色需要的共享规范**：从技能安装目录读取 `shared/` 目录下的相关文件
+3. **读取该角色需要的输入文档**：从项目工作区读取前一个角色的输出文档和交接文档
 4. **按照角色 Skill 中的 Prompt Template 激活角色**
 5. **角色执行完成后，检查产出物是否完整**
-6. **更新 Todo 状态，编写交接文档（存放在 `docs/交接/` 子目录）**
+6. **更新 Todo 状态，编写交接文档（存放在项目工作区的 `docs/交接/` 子目录）**
 7. **输出交接摘要，告知用户下一角色名称，然后停止**
 
 > **禁止**：在当前对话中自动激活下一个角色。必须由用户在新对话中手动触发。
 
-示例：
+示例（Windows 环境）：
 
 ```
 现在需要激活产品经理角色。请：
-1. 阅读 skills/product-manager.md 了解角色定义
-2. 阅读 shared/documentation-standard.md 了解文档规范
-3. 阅读 templates/prd-template.md 了解 PRD 模板
-4. 按照 Prompt Template 开始工作
+1. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\skills\product-manager.md
+2. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\shared\documentation-standard.md
+3. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\templates\prd-template.md
+4. 从项目工作区读取上游交接文档（如有）
+5. 按照 Prompt Template 开始工作
 ```
 
 ## 13 个角色速查
+
+> 以下 Skill 文件位于技能安装目录的 `skills/` 子目录中（路径见「技能文件位置」章节）。
 
 | #   | 角色       | Skill 文件                       | 核心职责             |
 | --- | -------- | ------------------------------ | ---------------- |
@@ -149,13 +183,29 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 文件结构
 
+### 技能安装目录（只读，AI 从此处读取规范）
+
 ```
+~/.trae-cn/skills/software-team-simulator/
 ├── SKILL.md              ← 本文件（入口）
 ├── workflow.md           ← 详细工作流程定义
 ├── skills/               ← 13 个角色 Skill 文件
 ├── shared/               ← 13 本共享规范
 ├── templates/            ← 8 个文档模板
 └── examples/             ← 完整示例项目（TaskFlow）
+```
+
+### 项目工作区（AI 在此处产出文档和代码）
+
+```
+你的项目目录/
+├── docs/                  ← 项目文档（AI 产出）
+│   ├── 产品需求文档.md
+│   ├── 架构设计文档.md
+│   ├── ...
+│   ├── 交接/              ← 交接文档统一存放
+│   └── 归档/              ← 废弃文档归档
+└── src/                   ← 项目代码（AI 产出）
 ```
 
 ## 使用示例
@@ -168,7 +218,8 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 你: 好的，我将按照 Phase 0 → Phase 5 的流程推进。
 首先激活项目经理，制定项目计划。
 
-[读取 skills/project-manager.md]
+[从技能安装目录读取 skills/project-manager.md]
+[从技能安装目录读取 shared/ 相关规范]
 [激活项目经理角色]
 [项目经理完成工作，产出 docs/项目计划.md、docs/任务清单.md、docs/决策日志.md]
 [编写交接文档 docs/交接/交接-项目经理-to-技术负责人.md]
@@ -185,8 +236,8 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 你: 这是代码审查任务，我将激活代码评审工程师角色。
 
-[读取 skills/code-reviewer.md]
-[读取 shared/review-standard.md]
+[从技能安装目录读取 skills/code-reviewer.md]
+[从技能安装目录读取 shared/review-standard.md]
 [激活代码评审工程师角色]
 [完成代码审查，产出 docs/代码审查报告.md]
 
@@ -201,8 +252,8 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 你: 好的，我将激活系统架构师角色。
 
-[读取 skills/solution-architect.md]
-[读取 docs/交接/交接-产品经理-to-UIUX设计师.md 作为输入]
+[从技能安装目录读取 skills/solution-architect.md]
+[从项目工作区读取 docs/交接/交接-产品经理-to-UIUX设计师.md 作为输入]
 [激活系统架构师角色]
 [完成架构设计，产出 docs/架构设计文档.md]
 [编写交接文档 docs/交接/交接-系统架构师-to-数据库工程师.md]
