@@ -1,4 +1,4 @@
-# AI 质量保证工程师 - AI Agent 技能
+﻿# AI 质量保证工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -82,18 +82,18 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | 功能需求和验收标准 |
-| API 文档 | Backend Engineer | `docs/api-spec.md` | API 规范 |
+| PRD 文档 | Product Manager | `docs/产品需求文档.md` | 功能需求和验收标准 |
+| API 文档 | Backend Engineer | `docs/API规范文档.md` | API 规范 |
 | 所有代码 | 各 Engineer | 代码 | 待测试代码 |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 测试计划 | `docs/test-plan.md` | Markdown | 测试策略和用例 |
-| 测试报告 | `docs/test-report.md` | Markdown | 测试结果 |
-| Bug 报告 | `docs/bug-report.md` | Markdown | 缺陷列表（含完整详情） |
-| 缺陷修复交接 | `docs/handoff-bugfix-{BUG-ID}.md` | Markdown | 针对每个 Critical/High Bug 的专项交接文档 |
+| 测试计划 | `docs/测试计划.md` | Markdown | 测试策略和用例 |
+| 测试报告 | `docs/测试报告.md` | Markdown | 测试结果 |
+| Bug 报告 | `docs/缺陷报告.md` | Markdown | 缺陷列表（含完整详情） |
+| 缺陷修复交接 | `docs/缺陷修复交接-{BUG-ID}.md` | Markdown | 针对每个 Critical/High Bug 的专项交接文档 |
 
 ## 必需文档
 
@@ -105,9 +105,9 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD
-2. `docs/api-spec.md` — API 文档
-3. `docs/architecture.md` — 架构文档
+1. `docs/产品需求文档.md` — PRD
+2. `docs/API规范文档.md` — API 文档
+3. `docs/架构设计文档.md` — 架构文档
 
 ## 工作流程
 
@@ -119,11 +119,11 @@
 5. 制定测试策略
 6. 编写测试计划
 7. 执行测试
-8. 记录缺陷（写入 docs/bug-report.md，每个 Bug 必须包含完整详情）
+8. 记录缺陷（写入 docs/缺陷报告.md，每个 Bug 必须包含完整详情）
 9. 判断是否存在 Critical/High Bug
    ├── 有 Critical/High Bug → 触发「缺陷修复回路」
    │   ├── 为每个 Critical/High Bug 生成专项交接文档
-   │   │   docs/handoff-bugfix-{BUG-ID}.md
+   │   │   docs/缺陷修复交接-{BUG-ID}.md
    │   ├── 在交接文档中包含完整 Bug 详情（非引用编号）
    │   ├── 指定修复负责人（根据 Bug 涉及的模块判断）
    │   ├── 暂停向下游交接，等待 Bug 修复
@@ -142,9 +142,9 @@
 ```
 QA 发现 Critical/High Bug
     ↓
-QA 写入 docs/bug-report.md（含完整详情）
+QA 写入 docs/缺陷报告.md（含完整详情）
     ↓
-QA 为该 Bug 生成专项交接文档 docs/handoff-bugfix-{BUG-ID}.md
+QA 为该 Bug 生成专项交接文档 docs/缺陷修复交接-{BUG-ID}.md
     ↓
 QA 根据 Bug 涉及的模块，判断修复负责人：
   ├── 后端代码问题 → 后端工程师
@@ -165,7 +165,7 @@ QA 在交接文档中包含以下完整信息（非引用编号）：
     ↓
 QA 通知协调者激活修复负责人角色
     ↓
-修复负责人读取 docs/handoff-bugfix-{BUG-ID}.md 和 docs/bug-report.md
+修复负责人读取 docs/缺陷修复交接-{BUG-ID}.md 和 docs/缺陷报告.md
     ↓
 修复负责人修复 Bug
     ↓
@@ -286,12 +286,12 @@ QA 为每个 Critical/High Bug 生成的交接文档必须包含以下内容：
 
 ### 测试计划
 
-- **路径**: `docs/test-plan.md`
+- **路径**: `docs/测试计划.md`
 - **格式**: 遵循 `templates/test-template.md`
 
 ### 测试报告
 
-- **路径**: `docs/test-report.md`
+- **路径**: `docs/测试报告.md`
 - **格式**: 遵循 `templates/test-template.md`
 
 ## 沟通规范
@@ -520,8 +520,8 @@ class TestDataFactory {
 请按照以下步骤工作:
 1. 阅读 `qa-engineer.md` 了解你的职责
 2. 阅读 `templates/test-template.md` 了解测试文档格式
-3. 阅读 `docs/prd.md` 了解功能需求和验收标准
-4. 阅读 `docs/api-spec.md` 了解 API 规范
+3. 阅读 `docs/产品需求文档.md` 了解功能需求和验收标准
+4. 阅读 `docs/API规范文档.md` 了解 API 规范
 5. 制定测试策略
 6. 编写测试计划
 7. 执行测试

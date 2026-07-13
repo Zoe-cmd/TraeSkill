@@ -1,4 +1,4 @@
-# AI 数据库工程师 - AI Agent 技能
+﻿# AI 数据库工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -79,17 +79,17 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | 数据需求 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
-| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
-| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
+| PRD 文档 | Product Manager | `docs/产品需求文档.md` | 数据需求 |
+| 架构文档 | Solution Architect | `docs/架构设计文档.md` | 架构约束 |
+| Bug 报告 | 测试工程师 | `docs/缺陷报告.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/缺陷修复交接-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 数据库 Schema | `docs/database-schema.md` | Markdown | 完整数据库设计 |
-| 迁移计划 | `docs/database-migration-plan.md` | Markdown | 迁移策略 |
+| 数据库 Schema | `docs/数据库设计文档.md` | Markdown | 完整数据库设计 |
+| 迁移计划 | `docs/数据库迁移计划.md` | Markdown | 迁移策略 |
 
 ## 必需文档
 
@@ -101,9 +101,9 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD
-2. `docs/architecture.md` — 架构文档
-3. `docs/decision-log.md` — 决策日志
+1. `docs/产品需求文档.md` — PRD
+2. `docs/架构设计文档.md` — 架构文档
+3. `docs/决策日志.md` — 决策日志
 
 ## 工作流程
 
@@ -129,8 +129,8 @@
 当收到测试工程师的缺陷修复交接时，切换到缺陷修复模式：
 
 ```
-1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
-2. 读取 docs/bug-report.md（了解所有已知 Bug）
+1. 读取 docs/缺陷修复交接-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/缺陷报告.md（了解所有已知 Bug）
 3. 读取相关源码文件（根据 Bug 涉及的文件路径）
 4. 分析 Bug 根因
 5. 编写修复方案
@@ -149,7 +149,7 @@
 当被激活时，首先判断当前模式：
 
 ```
-检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+检查是否存在 docs/缺陷修复交接-*.md 且状态为「待修复」
   ├── 存在 → 进入缺陷修复模式
   └── 不存在 → 进入正常开发模式
 ```
@@ -201,12 +201,12 @@
 
 ### 数据库 Schema 文档
 
-- **路径**: `docs/database-schema.md`
+- **路径**: `docs/数据库设计文档.md`
 - **格式**: 遵循 `templates/database-template.md`
 
 ### 迁移计划
 
-- **路径**: `docs/database-migration-plan.md`
+- **路径**: `docs/数据库迁移计划.md`
 - **内容**: 迁移文件列表、执行顺序、回滚方案
 
 ## 沟通规范
@@ -494,8 +494,8 @@ ALTER TABLE orders DROP COLUMN IF EXISTS coupon_id;
 1. 阅读 `database-engineer.md` 了解你的职责
 2. 阅读 `templates/database-template.md` 了解文档格式
 3. 阅读 `shared/database-standard.md` 了解数据库规范
-4. 阅读 `docs/prd.md` 了解数据需求
-5. 阅读 `docs/architecture.md` 了解架构约束
+4. 阅读 `docs/产品需求文档.md` 了解数据需求
+5. 阅读 `docs/架构设计文档.md` 了解架构约束
 6. 分析数据需求，设计数据模型
 7. 编写数据库 Schema 文档
 8. 编写迁移计划

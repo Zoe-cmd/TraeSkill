@@ -1,4 +1,4 @@
-# AI 工程师 - AI Agent 技能
+﻿# AI 工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -82,18 +82,18 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | AI 功能需求 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
-| API 文档 | Backend Engineer | `docs/api-spec.md` | API 规范 |
-| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
-| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
+| PRD 文档 | Product Manager | `docs/产品需求文档.md` | AI 功能需求 |
+| 架构文档 | Solution Architect | `docs/架构设计文档.md` | 架构约束 |
+| API 文档 | Backend Engineer | `docs/API规范文档.md` | API 规范 |
+| Bug 报告 | 测试工程师 | `docs/缺陷报告.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/缺陷修复交接-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
 | AI 功能代码 | `src/ai/` | 代码 | AI 服务实现 |
-| Prompt 模板 | `docs/prompts.md` | Markdown | Prompt 模板文档 |
+| Prompt 模板 | `docs/Prompt模板.md` | Markdown | Prompt 模板文档 |
 | AI 功能测试 | `src/ai/**/*.test.ts` | 代码 | 测试代码 |
 
 ## 必需文档
@@ -106,9 +106,9 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD
-2. `docs/architecture.md` — 架构文档
-3. `docs/api-spec.md` — API 文档
+1. `docs/产品需求文档.md` — PRD
+2. `docs/架构设计文档.md` — 架构文档
+3. `docs/API规范文档.md` — API 文档
 
 ## 工作流程
 
@@ -133,8 +133,8 @@
 当收到测试工程师的缺陷修复交接时，切换到缺陷修复模式：
 
 ```
-1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
-2. 读取 docs/bug-report.md（了解所有已知 Bug）
+1. 读取 docs/缺陷修复交接-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/缺陷报告.md（了解所有已知 Bug）
 3. 读取相关源码文件（根据 Bug 涉及的文件路径）
 4. 分析 Bug 根因
 5. 编写修复方案
@@ -153,7 +153,7 @@
 当被激活时，首先判断当前模式：
 
 ```
-检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+检查是否存在 docs/缺陷修复交接-*.md 且状态为「待修复」
   ├── 存在 → 进入缺陷修复模式
   └── 不存在 → 进入正常开发模式
 ```
@@ -209,7 +209,7 @@
 
 ### Prompt 模板文档
 
-- **路径**: `docs/prompts.md`
+- **路径**: `docs/Prompt模板.md`
 - **内容**: 所有 Prompt 模板及版本
 
 ## 沟通规范
@@ -492,8 +492,8 @@ class PromptInjectionGuard {
 
 请按照以下步骤工作:
 1. 阅读 `ai-engineer.md` 了解你的职责
-2. 阅读 `docs/prd.md` 了解 AI 功能需求
-3. 阅读 `docs/architecture.md` 了解架构约束
+2. 阅读 `docs/产品需求文档.md` 了解 AI 功能需求
+3. 阅读 `docs/架构设计文档.md` 了解架构约束
 4. 分析 AI 功能需求，选择模型
 5. 设计 Prompt 模板
 6. 实现 AI 服务集成

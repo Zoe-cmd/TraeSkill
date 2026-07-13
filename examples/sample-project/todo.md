@@ -1,4 +1,4 @@
-# Todo List: TaskFlow 项目任务清单
+﻿# Todo List: TaskFlow 项目任务清单
 
 <!--
 Document: Project Task List
@@ -32,7 +32,7 @@ Updated: 2026-07-11
 | T-005 | 建立代码规范 (ESLint, Prettier, Commitlint) | Tech Lead | P1 | 2026-07-03 | COMPLETED | T-002 |
 
 **输出:**
-- `docs/project-plan.md`, `docs/decision-log.md`
+- `docs/项目计划.md`, `docs/决策日志.md`
 - Monorepo 结构 (apps/api, apps/web, packages/shared)
 - `.github/workflows/ci.yml`
 - `.eslintrc.js`, `.prettierrc`, `commitlint.config.js`
@@ -51,8 +51,8 @@ Updated: 2026-07-11
 | T-011 | 编写测试计划 | QA Engineer | P1 | 2026-07-09 | COMPLETED | T-006, T-010 |
 
 **输出:**
-- `docs/prd.md`, `docs/architecture.md`, `docs/database-schema.md`
-- `docs/api-spec.md`, `docs/test-plan.md`
+- `docs/产品需求文档.md`, `docs/架构设计文档.md`, `docs/数据库设计文档.md`
+- `docs/API规范文档.md`, `docs/测试计划.md`
 - Figma 设计稿
 
 ---

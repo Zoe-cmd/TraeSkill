@@ -1,4 +1,4 @@
-# AI 后端工程师 - AI Agent 技能
+﻿# AI 后端工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -83,17 +83,17 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | 产品经理 | `docs/prd.md` | 功能需求 |
-| 架构文档 | 系统架构师 | `docs/architecture.md` | 架构约束 |
-| 数据库 Schema | 数据库工程师 | `docs/database-schema.md` | 数据模型 |
-| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
-| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
+| PRD 文档 | 产品经理 | `docs/产品需求文档.md` | 功能需求 |
+| 架构文档 | 系统架构师 | `docs/架构设计文档.md` | 架构约束 |
+| 数据库 Schema | 数据库工程师 | `docs/数据库设计文档.md` | 数据模型 |
+| Bug 报告 | 测试工程师 | `docs/缺陷报告.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/缺陷修复交接-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| API 文档 | `docs/api-spec.md` | Markdown | API 规范 |
+| API 文档 | `docs/API规范文档.md` | Markdown | API 规范 |
 | 后端代码 | `src/` | 代码 | 完整后端实现 |
 | 单元测试 | `src/**/*.test.ts` | 代码 | 测试代码 |
 
@@ -110,10 +110,10 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD
-2. `docs/architecture.md` — 架构文档
-3. `docs/database-schema.md` — 数据库 Schema
-4. `docs/decision-log.md` — 决策日志
+1. `docs/产品需求文档.md` — PRD
+2. `docs/架构设计文档.md` — 架构文档
+3. `docs/数据库设计文档.md` — 数据库 Schema
+4. `docs/决策日志.md` — 决策日志
 
 ## 工作流程
 
@@ -141,8 +141,8 @@
 当收到 QA Engineer 的缺陷修复交接时，切换到缺陷修复模式：
 
 ```
-1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
-2. 读取 docs/bug-report.md（了解所有已知 Bug）
+1. 读取 docs/缺陷修复交接-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/缺陷报告.md（了解所有已知 Bug）
 3. 读取相关源码文件（根据 Bug 涉及的文件路径）
 4. 分析 Bug 根因
 5. 编写修复方案
@@ -161,7 +161,7 @@
 当被激活时，首先判断当前模式：
 
 ```
-检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+检查是否存在 docs/缺陷修复交接-*.md 且状态为「待修复」
   ├── 存在 → 进入缺陷修复模式
   └── 不存在 → 进入正常开发模式
 ```
@@ -213,7 +213,7 @@
 
 ### API 文档
 
-- **路径**: `docs/api-spec.md`
+- **路径**: `docs/API规范文档.md`
 - **格式**: 遵循 `templates/api-template.md`
 
 ### 后端代码
@@ -491,9 +491,9 @@ function errorHandler(err: Error, req: Request, res: Response, next: NextFunctio
 1. 阅读 `backend-engineer.md` 了解你的职责
 2. 阅读 `templates/api-template.md` 了解 API 文档格式
 3. 阅读 `shared/api-standard.md` 了解 API 规范
-4. 阅读 `docs/prd.md` 了解功能需求
-5. 阅读 `docs/architecture.md` 了解架构约束
-6. 阅读 `docs/database-schema.md` 了解数据模型
+4. 阅读 `docs/产品需求文档.md` 了解功能需求
+5. 阅读 `docs/架构设计文档.md` 了解架构约束
+6. 阅读 `docs/数据库设计文档.md` 了解数据模型
 7. 设计 API 接口
 8. 编写 API 文档
 9. 实现业务逻辑

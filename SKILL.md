@@ -1,4 +1,4 @@
----
+﻿---
 name: software-team-simulator
 description: >
   模拟一支完整的软件研发团队，由 13 个专业 AI 角色协同完成项目开发，
@@ -183,7 +183,7 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 你: 好的，我将激活系统架构师角色。
 
 [读取 skills/solution-architect.md]
-[读取 docs/prd.md 作为输入]
+[读取 docs/产品需求文档.md 作为输入]
 [激活系统架构师角色]
 ```
 

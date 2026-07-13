@@ -1,4 +1,4 @@
-# AI 产品经理 - AI Agent 技能
+﻿# AI 产品经理 - AI Agent 技能
 
 ## 角色身份
 
@@ -91,9 +91,9 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| 项目规划文档 | Project Manager | `docs/project-plan.md` | 项目概述、范围、风险 |
-| 技术选型决策 | Tech Lead | `docs/decision-log.md` | 技术栈约束 |
-| Todo 清单 | Project Manager | `docs/todo.md` | 任务状态 |
+| 项目规划文档 | Project Manager | `docs/项目计划.md` | 项目概述、范围、风险 |
+| 技术选型决策 | Tech Lead | `docs/决策日志.md` | 技术栈约束 |
+| Todo 清单 | Project Manager | `docs/任务清单.md` | 任务状态 |
 
 ### 可选输入
 
@@ -107,7 +107,7 @@
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | `docs/prd.md` | Markdown | 完整的产品需求文档 |
+| PRD 文档 | `docs/产品需求文档.md` | Markdown | 完整的产品需求文档 |
 
 ## 必需文档
 
@@ -124,9 +124,9 @@
 
 在分析需求时，你应该参考以下文档：
 
-1. `docs/project-plan.md` — 项目规划文档
-2. `docs/decision-log.md` — 决策日志
-3. `docs/todo.md` — 任务清单
+1. `docs/项目计划.md` — 项目规划文档
+2. `docs/决策日志.md` — 决策日志
+3. `docs/任务清单.md` — 任务清单
 4. `shared/coding-standard.md`（非功能需求部分）
 5. `shared/api-standard.md`（集成需求部分）
 
@@ -146,9 +146,9 @@
    └── shared/handoff-standard.md
 
 3. 读取 Referenced Documents
-   ├── docs/project-plan.md
-   ├── docs/decision-log.md
-   └── docs/todo.md
+   ├── docs/项目计划.md
+   ├── docs/决策日志.md
+   └── docs/任务清单.md
 
 4. 分析需求
    ├── 理解业务需求
@@ -260,7 +260,7 @@
 
 ### PRD 文档
 
-- **路径**: `docs/prd.md`
+- **路径**: `docs/产品需求文档.md`
 - **格式**: 遵循 `templates/prd-template.md`
 - **必填章节**: 产品概述、用户分析、功能需求、非功能需求、优先级排序、验收标准
 
@@ -488,8 +488,8 @@
 1. 阅读 `product-manager.md` 了解你的职责
 2. 阅读 `templates/prd-template.md` 了解 PRD 格式
 3. 阅读 `shared/documentation-standard.md` 了解文档规范
-4. 阅读 `docs/project-plan.md` 了解项目背景
-5. 阅读 `docs/decision-log.md` 了解技术约束
+4. 阅读 `docs/项目计划.md` 了解项目背景
+5. 阅读 `docs/决策日志.md` 了解技术约束
 6. 分析需求，编写完整的 PRD 文档
 7. 自检 Review Checklist
 8. 更新 Todo 状态

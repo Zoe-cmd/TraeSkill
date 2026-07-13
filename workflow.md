@@ -1,4 +1,4 @@
-# 工作流程 - AI Agent 协作工作流
+﻿# 工作流程 - AI Agent 协作工作流
 
 ## 概述
 
@@ -101,9 +101,9 @@ Maintenance
 8. 提交给 Human Developer 审批
 
 **输出**:
-- `docs/project-plan.md` — 项目规划文档
-- `docs/todo.md` — 任务清单
-- `docs/decision-log.md` — 决策日志（初始化）
+- `docs/项目计划.md` — 项目规划文档
+- `docs/任务清单.md` — 任务清单
+- `docs/决策日志.md` — 决策日志（初始化）
 
 **交接**: 通知 技术负责人 开始工作
 
@@ -121,7 +121,7 @@ Maintenance
 7. 提交给 Human Developer 审批
 
 **输出**:
-- `docs/decision-log.md` — 追加技术选型决策
+- `docs/决策日志.md` — 追加技术选型决策
 
 **交接**: 通知 产品经理 开始工作
 
@@ -147,7 +147,7 @@ Maintenance
 11. 交接给 UI/UX设计师
 
 **输出**:
-- `docs/prd.md` — 产品需求文档
+- `docs/产品需求文档.md` — 产品需求文档
 
 **质量门禁**:
 - PRD 必须包含所有必填章节
@@ -174,10 +174,10 @@ Maintenance
 11. 交接给 系统架构师
 
 **输出**:
-- `docs/design-system.md` — 设计系统文档
-- `docs/user-flows.md` — 用户流程图
-- `docs/wireframes.md` — 线框图说明
-- `docs/mockups.md` — 高保真原型说明
+- `docs/设计系统.md` — 设计系统文档
+- `docs/用户流程图.md` — 用户流程图
+- `docs/线框图.md` — 线框图说明
+- `docs/高保真原型.md` — 高保真原型说明
 
 **质量门禁**:
 - 设计必须覆盖所有 PRD 中的用户场景
@@ -207,8 +207,8 @@ Maintenance
 14. 交接给 数据库工程师
 
 **输出**:
-- `docs/architecture.md` — 架构文档
-- `docs/decision-log.md` — 追加架构决策记录
+- `docs/架构设计文档.md` — 架构文档
+- `docs/决策日志.md` — 追加架构决策记录
 
 **质量门禁**:
 - 架构文档必须包含架构图（文字描述或 Mermaid 图）
@@ -242,8 +242,8 @@ Maintenance
 13. 交接给 后端工程师
 
 **输出**:
-- `docs/database-schema.md` — 数据库 Schema 文档
-- `docs/database-migration-plan.md` — 数据库迁移计划
+- `docs/数据库设计文档.md` — 数据库 Schema 文档
+- `docs/数据库迁移计划.md` — 数据库迁移计划
 
 **质量门禁**:
 - 所有表必须有主键
@@ -274,7 +274,7 @@ Maintenance
 14. 交接给 前端工程师 和 AI工程师
 
 **输出**:
-- `docs/api-spec.md` — API 规范文档
+- `docs/API规范文档.md` — API 规范文档
 - 后端代码实现
 - 单元测试代码
 
@@ -380,9 +380,9 @@ Maintenance
 15. 交接给 安全工程师
 
 **输出**:
-- `docs/test-plan.md` — 测试计划
-- `docs/test-report.md` — 测试报告
-- `docs/bug-report.md` — Bug 报告（如有）
+- `docs/测试计划.md` — 测试计划
+- `docs/测试报告.md` — 测试报告
+- `docs/缺陷报告.md` — Bug 报告（如有）
 
 **质量门禁**:
 - 所有 Critical 和 High 优先级 Bug 必须修复
@@ -412,8 +412,8 @@ Maintenance
 13. 交接给 代码评审工程师
 
 **输出**:
-- `docs/security-audit-report.md` — 安全审计报告
-- `docs/security-recommendations.md` — 安全建议
+- `docs/安全审计报告.md` — 安全审计报告
+- `docs/安全建议.md` — 安全建议
 
 **质量门禁**:
 - 所有 Critical 和 High 安全漏洞必须修复
@@ -443,8 +443,8 @@ Maintenance
 13. 交接给 运维工程师
 
 **输出**:
-- `docs/code-review-report.md` — 代码审查报告
-- `docs/refactoring-suggestions.md` — 重构建议
+- `docs/代码审查报告.md` — 代码审查报告
+- `docs/重构建议.md` — 重构建议
 
 **质量门禁**:
 - 所有 Major 问题必须修复
@@ -480,7 +480,7 @@ Maintenance
 15. 交接给 项目经理
 
 **输出**:
-- `docs/deployment-plan.md` — 部署计划
+- `docs/部署计划.md` — 部署计划
 - CI/CD 配置文件
 - Docker/容器化配置
 - 监控配置文件
@@ -507,8 +507,8 @@ Maintenance
 7. 提交 Human Developer 最终审批
 
 **输出**:
-- `docs/project-summary.md` — 项目总结
-- `docs/lessons-learned.md` — 经验教训
+- `docs/项目总结.md` — 项目总结
+- `docs/经验教训.md` — 经验教训
 
 **质量门禁**:
 - 所有 Todo 必须完成
@@ -532,8 +532,8 @@ Maintenance
 6. 协调各 Agent 执行维护
 
 **输出**:
-- `docs/maintenance-plan.md` — 维护计划
-- `docs/decision-log.md` — 追加维护决策
+- `docs/维护计划.md` — 维护计划
+- `docs/决策日志.md` — 追加维护决策
 
 ## 并行执行策略
 

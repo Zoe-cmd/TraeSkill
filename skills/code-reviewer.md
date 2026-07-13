@@ -1,4 +1,4 @@
-# AI 代码审查员 - AI Agent 技能
+﻿# AI 代码审查员 - AI Agent 技能
 
 ## 角色身份
 
@@ -79,15 +79,15 @@
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
 | 所有代码 | 各 Engineer | 代码 | 待审查代码 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
-| API 文档 | Backend Engineer | `docs/api-spec.md` | API 规范 |
+| 架构文档 | Solution Architect | `docs/架构设计文档.md` | 架构约束 |
+| API 文档 | Backend Engineer | `docs/API规范文档.md` | API 规范 |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 代码审查报告 | `docs/code-review-report.md` | Markdown | 审查结果 |
-| 重构建议 | `docs/refactoring-suggestions.md` | Markdown | 重构建议 |
+| 代码审查报告 | `docs/代码审查报告.md` | Markdown | 审查结果 |
+| 重构建议 | `docs/重构建议.md` | Markdown | 重构建议 |
 
 ## 必需文档
 
@@ -100,9 +100,9 @@
 
 ## 参考文档
 
-1. `docs/architecture.md` — 架构文档
-2. `docs/api-spec.md` — API 文档
-3. `docs/database-schema.md` — 数据库 Schema
+1. `docs/架构设计文档.md` — 架构文档
+2. `docs/API规范文档.md` — API 文档
+3. `docs/数据库设计文档.md` — 数据库 Schema
 
 ## 工作流程
 
@@ -162,12 +162,12 @@
 
 ### 代码审查报告
 
-- **路径**: `docs/code-review-report.md`
+- **路径**: `docs/代码审查报告.md`
 - **格式**: 遵循 `shared/review-standard.md`
 
 ### 重构建议
 
-- **路径**: `docs/refactoring-suggestions.md`
+- **路径**: `docs/重构建议.md`
 - **内容**: 重构建议和优先级
 
 ## 沟通规范

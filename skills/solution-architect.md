@@ -1,4 +1,4 @@
-# AI 解决方案架构师 - AI Agent 技能
+﻿# AI 解决方案架构师 - AI Agent 技能
 
 ## 角色身份
 
@@ -84,19 +84,19 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | 产品需求 |
-| 设计系统 | UI/UX Designer | `docs/design-system.md` | 设计约束 |
-| 用户流程 | UI/UX Designer | `docs/user-flows.md` | 交互流程 |
-| 技术选型决策 | Tech Lead | `docs/decision-log.md` | 技术方向 |
-| Bug 报告 | 测试工程师 | `docs/bug-report.md` | 缺陷列表（缺陷修复模式时必需） |
-| 缺陷修复交接 | 测试工程师 | `docs/handoff-bugfix-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
+| PRD 文档 | Product Manager | `docs/产品需求文档.md` | 产品需求 |
+| 设计系统 | UI/UX Designer | `docs/设计系统.md` | 设计约束 |
+| 用户流程 | UI/UX Designer | `docs/用户流程图.md` | 交互流程 |
+| 技术选型决策 | Tech Lead | `docs/决策日志.md` | 技术方向 |
+| Bug 报告 | 测试工程师 | `docs/缺陷报告.md` | 缺陷列表（缺陷修复模式时必需） |
+| 缺陷修复交接 | 测试工程师 | `docs/缺陷修复交接-{BUG-ID}.md` | 专项 Bug 交接文档（缺陷修复模式时必需） |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 架构文档 | `docs/architecture.md` | Markdown | 完整架构设计 |
-| 决策记录 | `docs/decision-log.md` | Markdown | 架构决策记录 |
+| 架构文档 | `docs/架构设计文档.md` | Markdown | 完整架构设计 |
+| 决策记录 | `docs/决策日志.md` | Markdown | 架构决策记录 |
 
 ## 必需文档
 
@@ -111,10 +111,10 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD
-2. `docs/design-system.md` — 设计系统
-3. `docs/user-flows.md` — 用户流程
-4. `docs/decision-log.md` — 决策日志
+1. `docs/产品需求文档.md` — PRD
+2. `docs/设计系统.md` — 设计系统
+3. `docs/用户流程图.md` — 用户流程
+4. `docs/决策日志.md` — 决策日志
 
 ## 工作流程
 
@@ -142,8 +142,8 @@
 当收到测试工程师的缺陷修复交接时，切换到缺陷修复模式：
 
 ```
-1. 读取 docs/handoff-bugfix-{BUG-ID}.md（获取完整 Bug 详情）
-2. 读取 docs/bug-report.md（了解所有已知 Bug）
+1. 读取 docs/缺陷修复交接-{BUG-ID}.md（获取完整 Bug 详情）
+2. 读取 docs/缺陷报告.md（了解所有已知 Bug）
 3. 读取相关源码文件（根据 Bug 涉及的文件路径）
 4. 分析 Bug 根因
 5. 编写修复方案
@@ -162,7 +162,7 @@
 当被激活时，首先判断当前模式：
 
 ```
-检查是否存在 docs/handoff-bugfix-*.md 且状态为「待修复」
+检查是否存在 docs/缺陷修复交接-*.md 且状态为「待修复」
   ├── 存在 → 进入缺陷修复模式
   └── 不存在 → 进入正常开发模式
 ```
@@ -226,12 +226,12 @@
 
 ### 架构文档
 
-- **路径**: `docs/architecture.md`
+- **路径**: `docs/架构设计文档.md`
 - **格式**: 遵循 `templates/architecture-template.md`
 
 ### 决策记录
 
-- **路径**: `docs/decision-log.md`（追加）
+- **路径**: `docs/决策日志.md`（追加）
 - **格式**: 遵循 `shared/decision-log-standard.md`
 
 ## 命名规范
@@ -430,8 +430,8 @@
 请按照以下步骤工作:
 1. 阅读 `solution-architect.md` 了解你的职责
 2. 阅读 `templates/architecture-template.md` 了解架构文档格式
-3. 阅读 `docs/prd.md` 了解产品需求
-4. 阅读 `docs/design-system.md` 了解设计约束
+3. 阅读 `docs/产品需求文档.md` 了解产品需求
+4. 阅读 `docs/设计系统.md` 了解设计约束
 5. 分析技术需求，设计系统架构
 6. 确定技术选型
 7. 编写架构文档

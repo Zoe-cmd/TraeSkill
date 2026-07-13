@@ -1,4 +1,4 @@
-# Architecture Template - 架构文档模板
+﻿# Architecture Template - 架构文档模板
 
 ## 使用说明
 
@@ -224,7 +224,7 @@ graph TD
 
 ### 9.1 架构决策记录
 
-参见 `docs/decision-log.md`
+参见 `docs/决策日志.md`
 
 ### 9.2 参考文档
 

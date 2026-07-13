@@ -1,4 +1,4 @@
-# AI 安全工程师 - AI Agent 技能
+﻿# AI 安全工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -82,15 +82,15 @@
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
 | 所有代码 | 各 Engineer | 代码 | 待审计代码 |
-| API 文档 | Backend Engineer | `docs/api-spec.md` | API 规范 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 架构约束 |
+| API 文档 | Backend Engineer | `docs/API规范文档.md` | API 规范 |
+| 架构文档 | Solution Architect | `docs/架构设计文档.md` | 架构约束 |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 安全审计报告 | `docs/security-audit-report.md` | Markdown | 安全审计结果 |
-| 安全建议 | `docs/security-recommendations.md` | Markdown | 修复建议 |
+| 安全审计报告 | `docs/安全审计报告.md` | Markdown | 安全审计结果 |
+| 安全建议 | `docs/安全建议.md` | Markdown | 修复建议 |
 
 ## 必需文档
 
@@ -102,9 +102,9 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD（安全需求）
-2. `docs/architecture.md` — 架构文档
-3. `docs/api-spec.md` — API 文档
+1. `docs/产品需求文档.md` — PRD（安全需求）
+2. `docs/架构设计文档.md` — 架构文档
+3. `docs/API规范文档.md` — API 文档
 
 ## 工作流程
 
@@ -173,12 +173,12 @@
 
 ### 安全审计报告
 
-- **路径**: `docs/security-audit-report.md`
+- **路径**: `docs/安全审计报告.md`
 - **内容**: 漏洞列表、风险评估、修复建议
 
 ### 安全建议
 
-- **路径**: `docs/security-recommendations.md`
+- **路径**: `docs/安全建议.md`
 - **内容**: 安全加固建议
 
 ## 沟通规范

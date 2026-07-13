@@ -1,4 +1,4 @@
-# Todo Template - 任务清单模板
+﻿# Todo Template - 任务清单模板
 
 ## 使用说明
 
@@ -45,7 +45,7 @@ Updated: {YYYY-MM-DD}
 | 实际工时 | - |
 | 依赖 | 无 |
 | 输入 | 项目需求简述 |
-| 输出 | `docs/project-plan.md`, `docs/todo.md`, `docs/decision-log.md` |
+| 输出 | `docs/项目计划.md`, `docs/任务清单.md`, `docs/决策日志.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -79,8 +79,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 1h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-001 |
-| 输入 | `docs/project-plan.md`, `docs/todo.md` |
-| 输出 | `docs/decision-log.md`（追加技术选型决策） |
+| 输入 | `docs/项目计划.md`, `docs/任务清单.md` |
+| 输出 | `docs/决策日志.md`（追加技术选型决策） |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -108,8 +108,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-001, TASK-{YYYYMMDD}-002 |
-| 输入 | `docs/project-plan.md`, `docs/decision-log.md` |
-| 输出 | `docs/prd.md` |
+| 输入 | `docs/项目计划.md`, `docs/决策日志.md` |
+| 输出 | `docs/产品需求文档.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -135,8 +135,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-003 |
-| 输入 | `docs/prd.md` |
-| 输出 | `docs/design-system.md`, `docs/user-flows.md`, `docs/wireframes.md`, `docs/mockups.md` |
+| 输入 | `docs/产品需求文档.md` |
+| 输出 | `docs/设计系统.md`, `docs/用户流程图.md`, `docs/线框图.md`, `docs/高保真原型.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -161,8 +161,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-003, TASK-{YYYYMMDD}-004 |
-| 输入 | `docs/prd.md`, `docs/design-system.md` |
-| 输出 | `docs/architecture.md`, `docs/decision-log.md`（追加架构决策） |
+| 输入 | `docs/产品需求文档.md`, `docs/设计系统.md` |
+| 输出 | `docs/架构设计文档.md`, `docs/决策日志.md`（追加架构决策） |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -190,8 +190,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-005 |
-| 输入 | `docs/prd.md`, `docs/architecture.md` |
-| 输出 | `docs/database-schema.md`, `docs/database-migration-plan.md` |
+| 输入 | `docs/产品需求文档.md`, `docs/架构设计文档.md` |
+| 输出 | `docs/数据库设计文档.md`, `docs/数据库迁移计划.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -217,8 +217,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 4h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-006 |
-| 输入 | `docs/prd.md`, `docs/architecture.md`, `docs/database-schema.md` |
-| 输出 | `docs/api-spec.md`, 后端代码, 单元测试 |
+| 输入 | `docs/产品需求文档.md`, `docs/架构设计文档.md`, `docs/数据库设计文档.md` |
+| 输出 | `docs/API规范文档.md`, 后端代码, 单元测试 |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -247,7 +247,7 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 4h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-007 |
-| 输入 | `docs/prd.md`, `docs/design-system.md`, `docs/api-spec.md` |
+| 输入 | `docs/产品需求文档.md`, `docs/设计系统.md`, `docs/API规范文档.md` |
 | 输出 | 前端代码, 组件测试 |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
@@ -275,7 +275,7 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 3h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-007 |
-| 输入 | `docs/prd.md`, `docs/architecture.md`, `docs/api-spec.md` |
+| 输入 | `docs/产品需求文档.md`, `docs/架构设计文档.md`, `docs/API规范文档.md` |
 | 输出 | AI 功能代码, Prompt 模板, AI 功能测试 |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
@@ -303,8 +303,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-008, TASK-{YYYYMMDD}-009 |
-| 输入 | `docs/prd.md`, `docs/api-spec.md`, 所有代码 |
-| 输出 | `docs/test-plan.md`, `docs/test-report.md`, `docs/bug-report.md` |
+| 输入 | `docs/产品需求文档.md`, `docs/API规范文档.md`, 所有代码 |
+| 输出 | `docs/测试计划.md`, `docs/测试报告.md`, `docs/缺陷报告.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -330,8 +330,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-010 |
-| 输入 | 所有代码, `docs/api-spec.md`, `docs/architecture.md` |
-| 输出 | `docs/security-audit-report.md`, `docs/security-recommendations.md` |
+| 输入 | 所有代码, `docs/API规范文档.md`, `docs/架构设计文档.md` |
+| 输出 | `docs/安全审计报告.md`, `docs/安全建议.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -358,7 +358,7 @@ Updated: {YYYY-MM-DD}
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-011 |
 | 输入 | 所有代码, 所有文档 |
-| 输出 | `docs/code-review-report.md`, `docs/refactoring-suggestions.md` |
+| 输出 | `docs/代码审查报告.md`, `docs/重构建议.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -386,8 +386,8 @@ Updated: {YYYY-MM-DD}
 | 预估工时 | 2h |
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-012 |
-| 输入 | 所有代码, `docs/architecture.md`, 所有测试报告 |
-| 输出 | `docs/deployment-plan.md`, CI/CD 配置, Docker 配置, 监控配置 |
+| 输入 | 所有代码, `docs/架构设计文档.md`, 所有测试报告 |
+| 输出 | `docs/部署计划.md`, CI/CD 配置, Docker 配置, 监控配置 |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |
@@ -414,7 +414,7 @@ Updated: {YYYY-MM-DD}
 | 实际工时 | - |
 | 依赖 | TASK-{YYYYMMDD}-013 |
 | 输入 | 所有交付物 |
-| 输出 | `docs/project-summary.md`, `docs/lessons-learned.md` |
+| 输出 | `docs/项目总结.md`, `docs/经验教训.md` |
 | 创建日期 | {YYYY-MM-DD} |
 | 开始日期 | - |
 | 完成日期 | - |

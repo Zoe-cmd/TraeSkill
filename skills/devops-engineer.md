@@ -1,4 +1,4 @@
-# AI DevOps 工程师 - AI Agent 技能
+﻿# AI DevOps 工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -82,7 +82,7 @@
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
 | 所有代码 | 各 Engineer | 代码 | 待部署代码 |
-| 架构文档 | Solution Architect | `docs/architecture.md` | 部署架构 |
+| 架构文档 | Solution Architect | `docs/架构设计文档.md` | 部署架构 |
 
 ## 输出产物
 
@@ -90,7 +90,7 @@
 |------|------|------|------|
 | CI/CD 配置 | `.github/workflows/` | YAML | 工作流配置 |
 | Docker 配置 | `Dockerfile`, `docker-compose.yml` | YAML | 容器化配置 |
-| 部署文档 | `docs/deployment.md` | Markdown | 部署指南 |
+| 部署文档 | `docs/部署计划.md` | Markdown | 部署指南 |
 | 监控配置 | `monitoring/` | 配置 | 监控告警 |
 
 ## 必需文档
@@ -102,8 +102,8 @@
 
 ## 参考文档
 
-1. `docs/architecture.md` — 架构文档
-2. `docs/decision-log.md` — 决策日志
+1. `docs/架构设计文档.md` — 架构文档
+2. `docs/决策日志.md` — 决策日志
 
 ## 工作流程
 
@@ -176,7 +176,7 @@
 
 ### 部署文档
 
-- **路径**: `docs/deployment.md`
+- **路径**: `docs/部署计划.md`
 - **内容**: 部署指南、环境变量、监控配置
 
 ## 沟通规范

@@ -1,4 +1,4 @@
-# AI 项目经理 - AI Agent 技能
+﻿# AI 项目经理 - AI Agent 技能
 
 ## 角色身份
 
@@ -87,9 +87,9 @@
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 项目规划 | `docs/project-plan.md` | Markdown | 项目计划 |
-| Todo 清单 | `docs/todo.md` | Markdown | 任务清单 |
-| 状态报告 | `docs/project-status.md` | Markdown | 项目状态 |
+| 项目规划 | `docs/项目计划.md` | Markdown | 项目计划 |
+| Todo 清单 | `docs/任务清单.md` | Markdown | 任务清单 |
+| 状态报告 | `docs/项目状态报告.md` | Markdown | 项目状态 |
 
 ## 必需文档
 
@@ -101,7 +101,7 @@
 
 ## 参考文档
 
-1. `docs/decision-log.md` — 决策日志
+1. `docs/决策日志.md` — 决策日志
 
 ## 工作流程
 
@@ -161,17 +161,17 @@
 
 ### 项目规划
 
-- **路径**: `docs/project-plan.md`
+- **路径**: `docs/项目计划.md`
 - **格式**: 遵循 `templates/project-plan-template.md`
 
 ### Todo 清单
 
-- **路径**: `docs/todo.md`
+- **路径**: `docs/任务清单.md`
 - **格式**: 遵循 `shared/task-standard.md`
 
 ### 状态报告
 
-- **路径**: `docs/project-status.md`
+- **路径**: `docs/项目状态报告.md`
 - **内容**: 项目当前状态、进度、风险
 
 ## 沟通规范

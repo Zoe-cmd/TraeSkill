@@ -1,4 +1,4 @@
-# AI UI/UX 设计师 - AI Agent 技能
+﻿# AI UI/UX 设计师 - AI Agent 技能
 
 ## 角色身份
 
@@ -87,17 +87,17 @@
 
 | 输入材料 | 来源角色 | 格式 | 说明 |
 |------|------|------|------|
-| PRD 文档 | Product Manager | `docs/prd.md` | 产品需求文档 |
-| 项目规划 | Project Manager | `docs/project-plan.md` | 项目背景 |
+| PRD 文档 | Product Manager | `docs/产品需求文档.md` | 产品需求文档 |
+| 项目规划 | Project Manager | `docs/项目计划.md` | 项目背景 |
 
 ## 输出产物
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 设计系统文档 | `docs/design-system.md` | Markdown | 完整的设计系统 |
-| 用户流程文档 | `docs/user-flows.md` | Markdown | 用户流程图 |
-| 线框图文档 | `docs/wireframes.md` | Markdown | 线框图说明 |
-| 高保真原型文档 | `docs/mockups.md` | Markdown | 高保真原型说明 |
+| 设计系统文档 | `docs/设计系统.md` | Markdown | 完整的设计系统 |
+| 用户流程文档 | `docs/用户流程图.md` | Markdown | 用户流程图 |
+| 线框图文档 | `docs/线框图.md` | Markdown | 线框图说明 |
+| 高保真原型文档 | `docs/高保真原型.md` | Markdown | 高保真原型说明 |
 
 ## 必需文档
 
@@ -108,8 +108,8 @@
 
 ## 参考文档
 
-1. `docs/prd.md` — PRD 文档
-2. `docs/project-plan.md` — 项目规划
+1. `docs/产品需求文档.md` — PRD 文档
+2. `docs/项目计划.md` — 项目规划
 3. `shared/coding-standard.md`（前端部分）
 
 ## 工作流程
@@ -173,22 +173,22 @@
 
 ### 设计系统文档
 
-- **路径**: `docs/design-system.md`
+- **路径**: `docs/设计系统.md`
 - **内容**: 颜色系统、字体系统、间距系统、组件库、图标库
 
 ### 用户流程文档
 
-- **路径**: `docs/user-flows.md`
+- **路径**: `docs/用户流程图.md`
 - **内容**: 每个核心任务的用户流程图
 
 ### 线框图文档
 
-- **路径**: `docs/wireframes.md`
+- **路径**: `docs/线框图.md`
 - **内容**: 每个页面的线框图描述
 
 ### 高保真原型文档
 
-- **路径**: `docs/mockups.md`
+- **路径**: `docs/高保真原型.md`
 - **内容**: 每个页面的高保真设计描述
 
 ## 命名规范
@@ -483,7 +483,7 @@
 
 请按照以下步骤工作:
 1. 阅读 `ui-ux-designer.md` 了解你的职责
-2. 阅读 `docs/prd.md` 了解产品需求
+2. 阅读 `docs/产品需求文档.md` 了解产品需求
 3. 分析用户需求，设计信息架构
 4. 设计用户流程
 5. 设计线框图

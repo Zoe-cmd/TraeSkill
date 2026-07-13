@@ -1,4 +1,4 @@
-# AI 技术负责人 - AI Agent 技能
+﻿# AI 技术负责人 - AI Agent 技能
 
 ## 角色身份
 
@@ -84,8 +84,8 @@
 
 | 输出产物 | 文件路径 | 格式 | 说明 |
 |------|------|------|------|
-| 技术评审报告 | `docs/tech-review-report.md` | Markdown | 评审结果 |
-| 决策记录 | `docs/decision-log.md` | Markdown | 技术决策 |
+| 技术评审报告 | `docs/技术评审报告.md` | Markdown | 评审结果 |
+| 决策记录 | `docs/决策日志.md` | Markdown | 技术决策 |
 
 ## 必需文档
 
@@ -161,12 +161,12 @@
 
 ### 技术评审报告
 
-- **路径**: `docs/tech-review-report.md`
+- **路径**: `docs/技术评审报告.md`
 - **内容**: 评审结果、问题列表、改进建议
 
 ### 决策记录
 
-- **路径**: `docs/decision-log.md`
+- **路径**: `docs/决策日志.md`
 - **格式**: 遵循 `shared/decision-log-standard.md`
 
 ## 沟通规范
