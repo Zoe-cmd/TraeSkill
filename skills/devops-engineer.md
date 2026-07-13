@@ -1,4 +1,4 @@
-﻿# AI DevOps 工程师 - AI Agent 技能
+# AI DevOps 工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -92,6 +92,9 @@
 | Docker 配置 | `Dockerfile`, `docker-compose.yml` | YAML | 容器化配置 |
 | 部署文档 | `docs/部署计划.md` | Markdown | 部署指南 |
 | 监控配置 | `monitoring/` | 配置 | 监控告警 |
+
+
+> **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
 
 ## 必需文档
 

@@ -79,6 +79,13 @@ Phase N Agent            交接文档            Phase N+1 Agent
 
 ## 交接文档格式
 
+### 交接文档存放路径
+
+交接文档统一存放在 `docs/交接/` 子目录下，命名规则参见 `shared/documentation-standard.md`：
+
+- 阶段交接：`docs/交接/交接-{源角色}-to-{目标角色}.md`
+- 缺陷修复交接：`docs/交接/缺陷修复交接-{BUG-ID}.md`
+
 ### 标准交接文档
 
 ```markdown

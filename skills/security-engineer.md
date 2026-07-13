@@ -1,4 +1,4 @@
-﻿# AI 安全工程师 - AI Agent 技能
+# AI 安全工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -91,6 +91,9 @@
 |------|------|------|------|
 | 安全审计报告 | `docs/安全审计报告.md` | Markdown | 安全审计结果 |
 | 安全建议 | `docs/安全建议.md` | Markdown | 修复建议 |
+
+
+> **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
 
 ## 必需文档
 

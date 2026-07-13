@@ -1,4 +1,4 @@
-﻿# AI 质量保证工程师 - AI Agent 技能
+# AI 质量保证工程师 - AI Agent 技能
 
 ## 角色身份
 
@@ -93,7 +93,10 @@
 | 测试计划 | `docs/测试计划.md` | Markdown | 测试策略和用例 |
 | 测试报告 | `docs/测试报告.md` | Markdown | 测试结果 |
 | Bug 报告 | `docs/缺陷报告.md` | Markdown | 缺陷列表（含完整详情） |
-| 缺陷修复交接 | `docs/缺陷修复交接-{BUG-ID}.md` | Markdown | 针对每个 Critical/High Bug 的专项交接文档 |
+| 缺陷修复交接 | `docs/交接/缺陷修复交接-{BUG-ID}.md` | Markdown | 针对每个 Critical/High Bug 的专项交接文档 |
+
+
+> **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
 
 ## 必需文档
 
@@ -123,7 +126,7 @@
 9. 判断是否存在 Critical/High Bug
    ├── 有 Critical/High Bug → 触发「缺陷修复回路」
    │   ├── 为每个 Critical/High Bug 生成专项交接文档
-   │   │   docs/缺陷修复交接-{BUG-ID}.md
+   │   │   docs/交接/缺陷修复交接-{BUG-ID}.md
    │   ├── 在交接文档中包含完整 Bug 详情（非引用编号）
    │   ├── 指定修复负责人（根据 Bug 涉及的模块判断）
    │   ├── 暂停向下游交接，等待 Bug 修复
@@ -144,7 +147,7 @@ QA 发现 Critical/High Bug
     ↓
 QA 写入 docs/缺陷报告.md（含完整详情）
     ↓
-QA 为该 Bug 生成专项交接文档 docs/缺陷修复交接-{BUG-ID}.md
+QA 为该 Bug 生成专项交接文档 docs/交接/缺陷修复交接-{BUG-ID}.md
     ↓
 QA 根据 Bug 涉及的模块，判断修复负责人：
   ├── 后端代码问题 → 后端工程师
@@ -165,7 +168,7 @@ QA 在交接文档中包含以下完整信息（非引用编号）：
     ↓
 QA 通知协调者激活修复负责人角色
     ↓
-修复负责人读取 docs/缺陷修复交接-{BUG-ID}.md 和 docs/缺陷报告.md
+修复负责人读取 docs/交接/缺陷修复交接-{BUG-ID}.md 和 docs/缺陷报告.md
     ↓
 修复负责人修复 Bug
     ↓

@@ -1,4 +1,4 @@
-﻿# AI 项目经理 - AI Agent 技能
+# AI 项目经理 - AI Agent 技能
 
 ## 角色身份
 
@@ -90,6 +90,9 @@
 | 项目规划 | `docs/项目计划.md` | Markdown | 项目计划 |
 | Todo 清单 | `docs/任务清单.md` | Markdown | 任务清单 |
 | 状态报告 | `docs/项目状态报告.md` | Markdown | 项目状态 |
+
+
+> **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
 
 ## 必需文档
 

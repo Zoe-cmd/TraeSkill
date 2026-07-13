@@ -1,4 +1,4 @@
-﻿# AI UI/UX 设计师 - AI Agent 技能
+# AI UI/UX 设计师 - AI Agent 技能
 
 ## 角色身份
 
@@ -98,6 +98,9 @@
 | 用户流程文档 | `docs/用户流程图.md` | Markdown | 用户流程图 |
 | 线框图文档 | `docs/线框图.md` | Markdown | 线框图说明 |
 | 高保真原型文档 | `docs/高保真原型.md` | Markdown | 高保真原型说明 |
+
+
+> **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
 
 ## 必需文档
 
