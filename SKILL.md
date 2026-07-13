@@ -24,32 +24,53 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 技能文件位置
 
-本技能的辅助文件（skills/、shared/、templates/、workflow.md）不在项目工作区中，而是安装在 TRAE 的全局技能目录。当需要读取这些文件时，使用以下路径：
+本技能的辅助文件（`skills/`、`shared/`、`templates/`、`workflow.md`）与本 `SKILL.md` 文件在**同一个目录**中。由于用户可能通过 ZIP 上传、克隆到 `.agents/skills/` 或直接放在 `.trae/skills/` 等不同方式安装本技能，安装目录名称不固定（可能是 `software-team-simulator`、`TraeSkill` 或其他名称），因此**不要硬编码目录路径**。
 
-**Windows**：
+### 如何定位技能文件
+
+在首次需要读取辅助文件时，执行以下搜索步骤来确定技能根目录：
+
+**步骤 1**：在全局技能目录中搜索
+
 ```
-%USERPROFILE%\.trae-cn\skills\software-team-simulator\
+搜索路径（按优先级）：
+  Windows:  %USERPROFILE%\.trae-cn\skills\*\SKILL.md
+  macOS:    ~/.trae-cn/skills/*/SKILL.md
+  Linux:    ~/.trae-cn/skills/*/SKILL.md
 ```
 
-**macOS / Linux**：
+找到内容与本文件匹配的 `SKILL.md`，其所在目录即为技能根目录。
+
+**步骤 2**：如果在全局技能目录中未找到，搜索项目技能目录
+
 ```
-~/.trae-cn/skills/software-team-simulator/
+搜索路径：
+  {项目根目录}\.trae\skills\*\SKILL.md
+  {项目根目录}\.agents\skills\*\SKILL.md
 ```
 
-> 当本指令中说「读取 `skills/product-manager.md`」时，实际读取的路径是：
-> - Windows: `c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\skills\product-manager.md`
-> - macOS/Linux: `~/.trae-cn/skills/software-team-simulator/skills/product-manager.md`
->
-> 如果不确定用户名，可以运行 `echo $env:USERPROFILE`（Windows）或 `echo $HOME`（macOS/Linux）获取。
+**步骤 3**：如果以上都未找到，直接询问用户
 
-### 路径速查
+```
+"我无法自动定位技能文件的安装位置。请告诉我技能文件所在的目录路径，
+通常是在以下位置之一：
+- ~/.trae-cn/skills/software-team-simulator/（全局技能）
+- ~/.trae-cn/skills/TraeSkill/（如果从 GitHub 克隆）
+- 项目目录/.trae/skills/software-team-simulator/（项目技能）
+- 项目目录/.agents/skills/TraeSkill/（.agents 目录）
+请提供技能根目录的完整路径。"
+```
 
-| 文件类型 | 路径前缀（Windows） | 路径前缀（macOS/Linux） |
-|---------|-------------------|----------------------|
-| 角色技能 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\skills\` | `~/.trae-cn/skills/software-team-simulator/skills/` |
-| 共享规范 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\shared\` | `~/.trae-cn/skills/software-team-simulator/shared/` |
-| 文档模板 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\templates\` | `~/.trae-cn/skills/software-team-simulator/templates/` |
-| 工作流程 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\workflow.md` | `~/.trae-cn/skills/software-team-simulator/workflow.md` |
+### 确定技能根目录后
+
+一旦找到技能根目录（下文用 `{SKILL_ROOT}` 表示），所有辅助文件的路径为：
+
+| 文件类型 | 路径 |
+|---------|------|
+| 角色技能 | `{SKILL_ROOT}/skills/角色代号.md` |
+| 共享规范 | `{SKILL_ROOT}/shared/规范名.md` |
+| 文档模板 | `{SKILL_ROOT}/templates/模板名.md` |
+| 工作流程 | `{SKILL_ROOT}/workflow.md` |
 
 > **注意**：项目产出物（`docs/` 目录下的文件）始终在**项目工作区**中，不是在技能安装目录。
 
@@ -97,25 +118,27 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 当需要某个角色时，按以下步骤操作。**每次对话只激活一个角色**：
 
-1. **读取角色 Skill 文件**：从技能安装目录读取 `skills/角色代号.md`（路径见上方「技能文件位置」）
-2. **读取该角色需要的共享规范**：从技能安装目录读取 `shared/` 目录下的相关文件
-3. **读取该角色需要的输入文档**：从项目工作区读取前一个角色的输出文档和交接文档
-4. **按照角色 Skill 中的 Prompt Template 激活角色**
-5. **角色执行完成后，检查产出物是否完整**
-6. **更新 Todo 状态，编写交接文档（存放在项目工作区的 `docs/交接/` 子目录）**
-7. **输出交接摘要，告知用户下一角色名称，然后停止**
+1. **定位技能根目录**：按上方「技能文件位置」章节的步骤，确定 `{SKILL_ROOT}`
+2. **读取角色 Skill 文件**：读取 `{SKILL_ROOT}/skills/角色代号.md`
+3. **读取该角色需要的共享规范**：读取 `{SKILL_ROOT}/shared/` 目录下的相关文件
+4. **读取该角色需要的输入文档**：从项目工作区读取前一个角色的输出文档和交接文档
+5. **按照角色 Skill 中的 Prompt Template 激活角色**
+6. **角色执行完成后，检查产出物是否完整**
+7. **更新 Todo 状态，编写交接文档（存放在项目工作区的 `docs/交接/` 子目录）**
+8. **输出交接摘要，告知用户下一角色名称，然后停止**
 
 > **禁止**：在当前对话中自动激活下一个角色。必须由用户在新对话中手动触发。
 
-示例（Windows 环境）：
+示例：
 
 ```
 现在需要激活产品经理角色。请：
-1. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\skills\product-manager.md
-2. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\shared\documentation-standard.md
-3. 读取 c:\Users\你的用户名\.trae-cn\skills\software-team-simulator\templates\prd-template.md
-4. 从项目工作区读取上游交接文档（如有）
-5. 按照 Prompt Template 开始工作
+1. 定位技能根目录 {SKILL_ROOT}
+2. 读取 {SKILL_ROOT}/skills/product-manager.md
+3. 读取 {SKILL_ROOT}/shared/documentation-standard.md
+4. 读取 {SKILL_ROOT}/templates/prd-template.md
+5. 从项目工作区读取上游交接文档（如有）
+6. 按照 Prompt Template 开始工作
 ```
 
 ## 13 个角色速查
@@ -186,14 +209,17 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 ### 技能安装目录（只读，AI 从此处读取规范）
 
 ```
-~/.trae-cn/skills/software-team-simulator/
-├── SKILL.md              ← 本文件（入口）
-├── workflow.md           ← 详细工作流程定义
-├── skills/               ← 13 个角色 Skill 文件
-├── shared/               ← 13 本共享规范
-├── templates/            ← 8 个文档模板
-└── examples/             ← 完整示例项目（TaskFlow）
+{SKILL_ROOT}/                    ← 技能根目录（通过上方搜索步骤定位）
+├── SKILL.md                     ← 本文件（入口）
+├── workflow.md                  ← 详细工作流程定义
+├── skills/                      ← 13 个角色 Skill 文件
+├── shared/                      ← 13 本共享规范
+├── templates/                   ← 8 个文档模板
+└── examples/                    ← 完整示例项目（TaskFlow）
 ```
+
+> 安装目录名称不固定：可能是 `software-team-simulator`、`TraeSkill` 或其他名称，
+> 取决于用户的安装方式（ZIP 上传、git clone、手动创建等）。
 
 ### 项目工作区（AI 在此处产出文档和代码）
 
