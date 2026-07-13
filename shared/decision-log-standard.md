@@ -1,4 +1,4 @@
-﻿# Decision Log Standard - 统一决策日志规范
+# Decision Log Standard - 统一决策日志规范
 
 ## 概述
 

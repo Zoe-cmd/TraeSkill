@@ -1,4 +1,4 @@
-﻿# Handoff Standard - 统一交接规范
+# Handoff Standard - 统一交接规范
 
 ## 概述
 

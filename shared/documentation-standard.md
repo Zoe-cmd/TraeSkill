@@ -1,4 +1,4 @@
-﻿# Documentation Standard - 统一文档规范
+# Documentation Standard - 统一文档规范
 
 ## 概述
 

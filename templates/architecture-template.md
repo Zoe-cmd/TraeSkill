@@ -1,4 +1,4 @@
-﻿# Architecture Template - 架构文档模板
+# Architecture Template - 架构文档模板
 
 ## 使用说明
 
