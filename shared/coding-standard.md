@@ -558,32 +558,58 @@ async findById(id: string): Promise<User | null> {
 
 ### 目录结构规范
 
+项目按角色职责划分代码目录，每个工程师只能写自己目录下的文件。
+
 ```
 src/
-├── modules/           # 业务模块
-│   ├── users/         # 用户模块
+├── frontend/              # 前端工程师（frontend-engineer）独占
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── stores/
+│   ├── services/          # API 调用层
+│   ├── styles/
+│   └── __tests__/
+├── backend/               # 后端工程师（backend-engineer）独占
+│   ├── modules/
 │   │   ├── controllers/
 │   │   ├── services/
 │   │   ├── repositories/
-│   │   ├── entities/
 │   │   ├── dto/
-│   │   ├── types/
-│   │   └── tests/
-│   ├── orders/        # 订单模块
-│   └── products/      # 产品模块
-├── common/            # 公共模块
-│   ├── decorators/
-│   ├── filters/
+│   │   └── entities/
+│   ├── common/
+│   ├── config/
+│   └── main.ts
+├── ai/                    # AI 工程师（ai-engineer）独占
+│   ├── providers/
+│   ├── prompts/
 │   ├── guards/
-│   ├── interceptors/
-│   ├── pipes/
-│   └── utils/
-├── config/            # 配置文件
-├── database/          # 数据库相关
-│   ├── migrations/
-│   └── seeds/
-└── main.ts            # 入口文件
+│   └── pipeline/
+├── database/              # 数据库工程师（database-engineer）独占
+│   ├── migrations/        # 迁移脚本（SQL）
+│   └── seeds/             # 种子数据
+└── shared/                # 跨角色共享（变更需声明，见下）
+    ├── types/             # 共享类型定义
+    └── constants/         # 共享常量
 ```
+
+#### 角色代码目录隔离矩阵
+
+| 角色 | 可写目录 | 禁止写 |
+|------|----------|--------|
+| frontend-engineer | `src/frontend/`、`public/`、前端构建配置 | `src/backend/`、`src/ai/`、`src/database/` |
+| backend-engineer | `src/backend/`、后端入口配置 | `src/frontend/`、`src/ai/`、`src/database/migrations/` |
+| ai-engineer | `src/ai/` | `src/frontend/`、`src/backend/`、`src/database/` |
+| database-engineer | `src/database/migrations/`、`src/database/seeds/` | 任何业务代码目录 |
+| devops-engineer | `deploy/`、`.github/`、`docker/`、IaC 配置 | `src/` 下任何业务代码 |
+| 其他非工程角色 | 仅 `docs/` 下自身交付文档 | 任何 `src/` 代码 |
+
+#### 共享目录（src/shared/）变更规则
+
+1. 任何角色修改 `src/shared/` 前，必须在工作日志中声明修改理由
+2. 修改前向用户提示「即将修改共享目录，可能影响其他角色」
+3. 优先建议将共享代码拆分到各自目录，而非堆积在 shared
+4. 共享类型定义（types）可由任一工程师新增，但修改须声明
 
 ## 依赖管理规范
 
@@ -656,6 +682,9 @@ Controller → Service → Repository → Database
 - [ ] 单元测试通过
 - [ ] Lint 检查通过
 - [ ] 类型检查通过
+- [ ] 所有新增/修改文件位于本角色代码目录边界内（见角色代码目录隔离矩阵）
+- [ ] 未修改任何其他角色的代码目录
+- [ ] 若修改了 src/shared/，已在工作日志声明
 
 ## 工具配置
 

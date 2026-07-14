@@ -24,23 +24,26 @@ AI 功能 → 测试 → 安全审计 → 代码评审 → 部署上线）完成
 
 ## 技能文件位置
 
-辅助文件（`skills/`、`shared/`、`templates/`、`workflow.md`）与本文档在**同一目录**。安装目录名可能是 `software-team-simulator` 或 `TraeSkill`。按以下顺序尝试读取，命中即可：
+辅助文件（`roles/`、`shared/`、`templates/`、`workflow.md`）与本文档在**同一目录**。安装目录名可能是 `software-team-simulator` 或 `TraeSkill`。
 
-```
-Windows:
-  %USERPROFILE%\.trae-cn\skills\software-team-simulator\
-  %USERPROFILE%\.trae-cn\skills\TraeSkill\
-  %USERPROFILE%\.agents\skills\software-team-simulator\
-  %USERPROFILE%\.agents\skills\TraeSkill\
+### 定位技能根目录 {SKILL_ROOT}
 
-macOS / Linux:
-  ~/.trae-cn/skills/software-team-simulator/
-  ~/.trae-cn/skills/TraeSkill/
-  ~/.agents/skills/software-team-simulator/
-  ~/.agents/skills/TraeSkill/
-```
+使用 **LS 工具**依次检查以下路径，第一个存在的即为 `{SKILL_ROOT}`：
 
-找到的目录记为 `{SKILL_ROOT}`，辅助文件路径：`{SKILL_ROOT}/skills/`、`{SKILL_ROOT}/shared/`、`{SKILL_ROOT}/templates/`、`{SKILL_ROOT}/workflow.md`。若都找不到，直接询问用户技能目录路径。
+| 序号 | Windows | macOS / Linux |
+|------|---------|---------------|
+| 1 | `%USERPROFILE%\.trae-cn\skills\software-team-simulator\` | `~/.trae-cn/skills/software-team-simulator/` |
+| 2 | `%USERPROFILE%\.trae-cn\skills\TraeSkill\` | `~/.trae-cn/skills/TraeSkill/` |
+| 3 | `%USERPROFILE%\.agents\skills\software-team-simulator\` | `~/.agents/skills/software-team-simulator/` |
+| 4 | `%USERPROFILE%\.agents\skills\TraeSkill\` | `~/.agents/skills/TraeSkill/` |
+
+> Windows 环境变量 `%USERPROFILE%` 等同于 `C:\Users\{用户名}`。
+
+找到后，角色文件路径为 `{SKILL_ROOT}/roles/角色代号.md`，共享规范在 `{SKILL_ROOT}/shared/`。
+
+**若以上路径都不存在**，运行以下命令列出已安装的技能目录，从中找到包含 `roles/` 子目录的那个：
+- Windows: `Get-ChildItem "$env:USERPROFILE\.trae-cn\skills" -Directory`
+- macOS/Linux: `ls -d ~/.trae-cn/skills/*/`
 
 > 项目产出物（`docs/`）始终在项目工作区，不是技能目录。
 
@@ -68,6 +71,8 @@ macOS / Linux:
 3. **单一职责**：每个角色只做自己职责范围内的事
 4. **显式交接**：每个角色完成后必须产出交接文档，下一个角色读取交接文档继续工作
 5. **单角色单对话**：一个对话只激活一个角色。角色完成工作并产出交接文档后，**必须停止**，不得在当前对话中自动激活下一个角色。用户需要在新对话中激活下一个角色
+6. **目录隔离**：每个工程师只能修改自身代码目录（见 coding-standard.md 隔离矩阵），越界即停
+7. **工作日志防漂移**：单角色长对话内维护工作日志，每完成子任务锚定身份，触发预警主动停（见 worklog-standard.md）
 
 ## 工作流程
 
@@ -82,14 +87,14 @@ macOS / Linux:
 | Phase 4 | 质量保证   | 测试工程师 → 安全工程师           | 测试报告、安全审计报告    |
 | Phase 5 | 交付与运维  | 代码评审工程师 → 运维工程师         | 审查报告、部署配置      |
 
-> **缺陷修复回路**：当 QA 在 Phase 4 发现 Critical/High Bug 时，不得直接交接给下游角色，必须触发缺陷修复回路。详见 `skills/qa-engineer.md` 中的「缺陷修复回路」章节。
+> **缺陷修复回路**：当 QA 在 Phase 4 发现 Critical/High Bug 时，不得直接交接给下游角色，必须触发缺陷修复回路。详见 `roles/qa-engineer.md` 中的「缺陷修复回路」章节。
 
 ## 如何激活角色
 
 当需要某个角色时，按以下步骤操作。**每次对话只激活一个角色**：
 
 1. **定位技能根目录**：按上方「技能文件位置」章节的步骤，确定 `{SKILL_ROOT}`
-2. **读取角色 Skill 文件**：读取 `{SKILL_ROOT}/skills/角色代号.md`
+2. **读取角色 Skill 文件**：读取 `{SKILL_ROOT}/roles/角色代号.md`
 3. **读取该角色需要的共享规范**：读取 `{SKILL_ROOT}/shared/` 目录下的相关文件
 4. **读取该角色需要的输入文档**：从项目工作区读取前一个角色的输出文档和交接文档
 5. **按照角色 Skill 中的 Prompt Template 激活角色**
@@ -104,7 +109,7 @@ macOS / Linux:
 ```
 现在需要激活产品经理角色。请：
 1. 定位技能根目录 {SKILL_ROOT}
-2. 读取 {SKILL_ROOT}/skills/product-manager.md
+2. 读取 {SKILL_ROOT}/roles/product-manager.md
 3. 读取 {SKILL_ROOT}/shared/documentation-standard.md
 4. 读取 {SKILL_ROOT}/templates/prd-template.md
 5. 从项目工作区读取上游交接文档（如有）
@@ -113,35 +118,37 @@ macOS / Linux:
 
 ## 13 个角色速查
 
-> 以下 Skill 文件位于技能安装目录的 `skills/` 子目录中（路径见「技能文件位置」章节）。
+> 以下 Skill 文件位于技能安装目录的 `roles/` 子目录中（路径见「技能文件位置」章节）。
 
 | #   | 角色       | Skill 文件                       | 核心职责             |
 | --- | -------- | ------------------------------ | ---------------- |
-| 1   | 产品经理     | `skills/product-manager.md`    | 需求分析、PRD 撰写      |
-| 2   | UI/UX设计师 | `skills/ui-ux-designer.md`     | 交互设计、设计系统        |
-| 3   | 系统架构师    | `skills/solution-architect.md` | 架构设计、技术选型        |
-| 4   | 数据库工程师   | `skills/database-engineer.md`  | 数据建模、SQL 设计      |
-| 5   | 后端工程师    | `skills/backend-engineer.md`   | API 开发、业务逻辑      |
-| 6   | 前端工程师    | `skills/frontend-engineer.md`  | 组件开发、页面实现        |
-| 7   | AI工程师    | `skills/ai-engineer.md`        | Prompt 工程、RAG 管线 |
-| 8   | 测试工程师    | `skills/qa-engineer.md`        | 测试策略、缺陷管理        |
-| 9   | 安全工程师    | `skills/security-engineer.md`  | 安全审计、漏洞修复        |
-| 10  | 代码评审工程师  | `skills/code-reviewer.md`      | 代码审查、重构建议        |
-| 11  | 运维工程师    | `skills/devops-engineer.md`    | CI/CD、部署监控       |
-| 12  | 项目经理     | `skills/project-manager.md`    | 进度跟踪、风险管理        |
-| 13  | 技术负责人    | `skills/tech-lead.md`          | 技术决策、架构评审        |
+| 1   | 产品经理     | `roles/product-manager.md`    | 需求分析、PRD 撰写      |
+| 2   | UI/UX设计师 | `roles/ui-ux-designer.md`     | 交互设计、设计系统        |
+| 3   | 系统架构师    | `roles/solution-architect.md` | 架构设计、技术选型        |
+| 4   | 数据库工程师   | `roles/database-engineer.md`  | 数据建模、SQL 设计      |
+| 5   | 后端工程师    | `roles/backend-engineer.md`   | API 开发、业务逻辑      |
+| 6   | 前端工程师    | `roles/frontend-engineer.md`  | 组件开发、页面实现        |
+| 7   | AI工程师    | `roles/ai-engineer.md`        | Prompt 工程、RAG 管线 |
+| 8   | 测试工程师    | `roles/qa-engineer.md`        | 测试策略、缺陷管理        |
+| 9   | 安全工程师    | `roles/security-engineer.md`  | 安全审计、漏洞修复        |
+| 10  | 代码评审工程师  | `roles/code-reviewer.md`      | 代码审查、重构建议        |
+| 11  | 运维工程师    | `roles/devops-engineer.md`    | CI/CD、部署监控       |
+| 12  | 项目经理     | `roles/project-manager.md`    | 进度跟踪、风险管理        |
+| 13  | 技术负责人    | `roles/tech-lead.md`          | 技术决策、架构评审        |
 
 ## 每个角色的标准工作流
 
 ```
 1. 读取本角色 Skill 文件
-2. 读取 Required Documents（共享规范）
+2. 读取 Required Documents（共享规范，含 worklog-standard.md）
 3. 读取 Input Documents（上游角色的产出物）
+3.5 读取 docs/工作日志-{角色代号}.md（若存在）→ 恢复进度，声明角色身份【锚定#0】
 4. 分析需求
 5. 设计方案
-6. 执行实现
+6. 执行实现（每完成一个子任务：写工作日志检查点 + 角色锚定 + 越界自检）
 7. 自检 Review Checklist
 8. 更新 Todo 状态
+8.5 写工作日志最终快照
 9. 编写交接文档（存放在 docs/交接/ 子目录）
 10. 输出交接摘要，告知用户下一角色是什么
 11. 停止。不得自动激活下一个角色
@@ -182,7 +189,7 @@ macOS / Linux:
 {SKILL_ROOT}/                    ← 技能根目录（通过上方搜索步骤定位）
 ├── SKILL.md                     ← 本文件（入口）
 ├── workflow.md                  ← 详细工作流程定义
-├── skills/                      ← 13 个角色 Skill 文件
+├── roles/                      ← 13 个角色 Skill 文件
 ├── shared/                      ← 13 本共享规范
 ├── templates/                   ← 8 个文档模板
 └── examples/                    ← 完整示例项目（TaskFlow）
@@ -214,7 +221,7 @@ macOS / Linux:
 你: 好的，我将按照 Phase 0 → Phase 5 的流程推进。
 首先激活项目经理，制定项目计划。
 
-[从技能安装目录读取 skills/project-manager.md]
+[从技能安装目录读取 roles/project-manager.md]
 [从技能安装目录读取 shared/ 相关规范]
 [激活项目经理角色]
 [项目经理完成工作，产出 docs/项目计划.md、docs/任务清单.md、docs/决策日志.md]
@@ -232,7 +239,7 @@ macOS / Linux:
 
 你: 这是代码审查任务，我将激活代码评审工程师角色。
 
-[从技能安装目录读取 skills/code-reviewer.md]
+[从技能安装目录读取 roles/code-reviewer.md]
 [从技能安装目录读取 shared/review-standard.md]
 [激活代码评审工程师角色]
 [完成代码审查，产出 docs/代码审查报告.md]
@@ -248,7 +255,7 @@ macOS / Linux:
 
 你: 好的，我将激活系统架构师角色。
 
-[从技能安装目录读取 skills/solution-architect.md]
+[从技能安装目录读取 roles/solution-architect.md]
 [从项目工作区读取 docs/交接/交接-产品经理-to-UIUX设计师.md 作为输入]
 [激活系统架构师角色]
 [完成架构设计，产出 docs/架构设计文档.md]

@@ -10,4 +10,12 @@ Thumbs.db
 
 # Temp
 *.tmp
-*.logTreaSkill.zip
+*.log
+
+# Build artifacts
+examples.zip
+TreaSkill.zip
+
+# TRAE internal
+.uploads/
+.trae/

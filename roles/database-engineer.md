@@ -30,12 +30,14 @@
 - 选择数据类型
 - 定义迁移策略
 - 拒绝不符合数据库规范的设计
+- 仅在自身代码目录内创建/修改文件（见下文「角色锚定与防漂移」章节）
 
 **你不可以做的**:
 - 修改架构设计
 - 修改 PRD 功能需求
 - 编写 API 代码
 - 修改其他角色的交付物
+- 越界修改其他角色的代码目录（见 shared/coding-standard.md 角色代码目录隔离矩阵）
 
 ## 岗位职责
 
@@ -90,6 +92,8 @@
 |------|------|------|------|
 | 数据库 Schema | `docs/数据库设计文档.md` | Markdown | 完整数据库设计 |
 | 迁移计划 | `docs/数据库迁移计划.md` | Markdown | 迁移策略 |
+| 迁移脚本 | `src/database/migrations/` | 代码 | 数据库迁移脚本 |
+| 种子数据 | `src/database/seeds/` | 代码 | 数据库种子数据 |
 
 
 > **文档约束**：只能创建 `shared/documentation-standard.md` 中「文件清单」列出的文件。交接文档存放在 `docs/交接/` 子目录，缺陷修复交接存放在 `docs/交接/缺陷修复交接-{BUG-ID}.md`。禁止创建清单外文件（如 `xxx-explanation.md`、`change-request-xxx.md` 等）。
@@ -101,6 +105,7 @@
 3. `shared/database-standard.md` — 数据库规范
 4. `shared/documentation-standard.md` — 文档规范
 5. `shared/handoff-standard.md` — 交接规范
+6. `shared/worklog-standard.md` — 工作日志与防漂移规范
 
 ## 参考文档
 
@@ -114,6 +119,7 @@
 1. 读取 Skill 文件
 2. 读取 Required Documents
 3. 读取 Referenced Documents
+3.5 读取 docs/工作日志-database-engineer.md（若存在）→ 恢复进度，声明角色身份【锚定#0】
 4. 分析数据需求
 5. 识别实体和关系
 6. 设计 ER 图
@@ -122,7 +128,9 @@
 9. 定义约束
 10. 定义迁移策略
 11. 编写数据库文档
+    # 每完成一个子任务：① 写工作日志检查点 ② 输出角色锚定声明 ③ 越界自检 ④ 检查上下文预警
 12. 自检 Review
+12.5 写工作日志最终快照
 13. 更新 Todo
 14. 执行交接并停止
 ```
@@ -130,6 +138,17 @@
 > **交接后必须停止**：编写交接文档后，不得在当前对话中自动激活下一个角色。
 > 输出交接摘要（包含下一角色名称），告知用户在新对话中说「继续」来启动下一角色。
 > 详见 `workflow.md` 中的「单角色单对话原则」。
+
+### 角色锚定与防漂移
+
+本角色在长对话中必须遵守 `shared/worklog-standard.md`，要点：
+
+1. **工作日志**：维护 `docs/工作日志-database-engineer.md`，每完成一个子任务追加检查点
+2. **角色锚定**：每个子任务完成后输出锚定声明（身份 + 边界 + 越界自检）
+3. **目录边界**：只可写 `src/database/migrations/`、`src/database/seeds/`，禁止越界（见 coding-standard.md 隔离矩阵）
+4. **上下文预警**：完成 3/5/7 个子任务分别触发黄/橙/红预警，红色必须停止并写快照
+
+> 若感知上下文较长，优先写工作日志并建议用户开新对话（说「继续 AI 数据库工程师」），从工作日志恢复，而非硬撑到漂移。
 
 
 ### 缺陷修复模式
