@@ -119,7 +119,7 @@
 1. 读取 Skill 文件
 2. 读取 Required Documents
 3. 读取 Referenced Documents
-3.5 读取 docs/工作日志-database-engineer.md（若存在）→ 恢复进度，声明角色身份【锚定#0】
+3.5 读取 docs/工作日志/工作日志-DB.md（若存在）→ 恢复进度，声明角色身份【锚定#0】
 4. 分析数据需求
 5. 识别实体和关系
 6. 设计 ER 图
@@ -143,7 +143,7 @@
 
 本角色在长对话中必须遵守 `shared/worklog-standard.md`，要点：
 
-1. **工作日志**：维护 `docs/工作日志-database-engineer.md`，每完成一个子任务追加检查点
+1. **工作日志**：维护 `docs/工作日志/工作日志-DB.md`，每完成一个子任务追加检查点
 2. **角色锚定**：每个子任务完成后输出锚定声明（身份 + 边界 + 越界自检）
 3. **目录边界**：只可写 `src/database/migrations/`、`src/database/seeds/`，禁止越界（见 coding-standard.md 隔离矩阵）
 4. **上下文预警**：完成 3/5/7 个子任务分别触发黄/橙/红预警，红色必须停止并写快照
